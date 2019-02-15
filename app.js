@@ -8,7 +8,9 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
-
+const passport = require('./helpers/passport')
+const session      = require('express-session')
+const MongoStore = require("connect-mongo")(session);
 
 mongoose
   .connect('mongodb://localhost/project2', {useNewUrlParser: true})
@@ -24,6 +26,9 @@ const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.
 
 const app = express();
 
+app.use(passport.initialize())
+app.use(passport.session())
+
 // Middleware Setup
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -37,14 +42,25 @@ app.use(require('node-sass-middleware')({
   dest: path.join(__dirname, 'public'),
   sourceMap: true
 }));
-      
 
+// Sessions
+app.use(session({
+  secret: process.env.SECRET,
+  resave: true,
+  saveUninitialized: true,
+  cookie: { maxAge: 60000 },
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60 // 1 day
+  })
+}));
+
+
+//Static
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
-
-
 
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';

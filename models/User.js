@@ -1,22 +1,26 @@
 let mongoose = require('mongoose')
 let Schema = mongoose.Schema
-// Passport  plugin to replace the String password
 let passportLocalMongoose = require('passport-local-mongoose')
 
 let userSchema = new Schema({
-username: {
-  type: String,
-  required: true
-},
-  email: String,
+  firstName: String,
+  lastName: String,
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+  },
   facebookId: String,
   photoURL: String,
   role: {
     type: String,
-    enum: ['Admin', 'Editor', 'Guest'],
+    enum: ['Admin', 'Guest'],
     default: 'Guest',
+  },
+  active: {
+    type: Boolean,
+    default: true,
   }
-// password: String
 }, {timestamps:true})
 
 userSchema.plugin(passportLocalMongoose, {
