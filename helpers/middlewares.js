@@ -9,7 +9,6 @@ exports.isRole = function (role) {
 // Session middleware
 exports.isAuth = function(req, res, next) {
   if(req.isAuthenticated()) {
-  // if(req.session.currentUser) {
     res.redirect('/')
   } else {
     next()

@@ -8,9 +8,35 @@
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 <body>
-
+   <nav>
+    <div id="logo">
+      Logo
+    </div>
+    <div class="search">
+      <form action="">
+      <input type="text" placeholder="What are you looking for?">
+      <input type="submit" value="🔍">
+      </form>
+   </div>
+    </div>
+    {{#if loggedUser}}
+    <div class="menu">
+      <a href="/">Home</a>
+      <a href="/profile">Profile</a>
+      <a href="/logout">Logout</a>
+    </div>
+    {{else}}
+    <div class="menu">
+      <a href="/">Home</a>
+      <a href="/signup">Signup</a>
+      <a href="/login">Login</a>
+    </div>
+    {{/if}}
+  </nav>
+  <section>
   {{{body}}}
-
+</section>
+<footer>Esto es el footer</footer>
   <script src="/javascripts/script.js"></script>
 </body>
 </html>
