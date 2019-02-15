@@ -1,0 +1,68 @@
+<h2>Add a new place</h2>
+
+<div>
+  <h3>Import a Foursquare venue</h3>
+  <p>Foursquare URL
+  <input type="text" id="fqUrl">
+  <button id="fqBtn">Submit</button>
+</p>
+</div>
+<form action="/admin/places/new" method="POST">
+<p>Place name
+  <input type="text" name="placeName"  id="placeName">
+</p>
+<p>Place type
+  <select name="placeType" id="placeType">
+    <option value="Vegan">Vegan</option>
+    <option value="Vegetarian">Vegetarian</option>
+  </select>
+</p>
+<p>Food type
+  <input type="text" name="placeFoodType"  id="placeFoodType">
+</p>
+<p>Description
+  <input type="text" name="placeDescription"  id="placeDescription">
+</p>
+<p>Rating
+  <input type="text" name="placeRating"  id="placeRating">
+</p>
+<p>Price range
+  <input type="text" name="placePriceRange"  id="placePriceRange">
+</p>
+<p>Open times
+  <input type="text" name="placeOpenTimes"  id="placeOpenTimes">
+</p>
+<p>Phone number
+  <input type="text" name="placePhone"  id="placePhone">
+</p>
+<p>Address
+  <input type="text" name="placeAddress"  id="placeAddress">
+</p>
+<p>City
+  <input type="text" name="placeCity"  id="placeCity">
+</p>
+</form>
+
+<script src="/javascripts/foursquare.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+
+{{!-- name: String,
+  address: String,
+  phoneNumber: String,
+  type: {
+    type: String,
+    enum: ['Vegan', 'Vegetarian']
+  },
+  foodType: String,
+  pictures: [String],
+  rating: String,
+  priceRange: String,
+  openTimes: String,
+  cityId: {
+    type: Schema.Types.ObjectId,
+    ref: "City"
+  },
+  authorId: {
+    type: Schema.Types.ObjectId,
+    ref: "User"
+  }, --}}

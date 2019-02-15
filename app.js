@@ -11,6 +11,7 @@ const path         = require('path');
 const passport = require('./helpers/passport')
 const session      = require('express-session')
 const MongoStore = require("connect-mongo")(session);
+let { isRole, isAdmin, isLoggedIn, isAuth } = require('./helpers/middlewares')
 
 mongoose
   .connect('mongodb://localhost/project2', {useNewUrlParser: true})
@@ -25,6 +26,18 @@ const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
 
 const app = express();
+
+// Sessions
+app.use(session({
+  secret: process.env.SECRET,
+  resave: true,
+  saveUninitialized: true,
+  cookie: { maxAge: 60000 },
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60 // 1 day
+  })
+}));
 
 app.use(passport.initialize())
 app.use(passport.session())
@@ -43,17 +56,7 @@ app.use(require('node-sass-middleware')({
   sourceMap: true
 }));
 
-// Sessions
-app.use(session({
-  secret: process.env.SECRET,
-  resave: true,
-  saveUninitialized: true,
-  cookie: { maxAge: 60000 },
-  store: new MongoStore({
-    mongooseConnection: mongoose.connection,
-    ttl: 24 * 60 * 60 // 1 day
-  })
-}));
+
 
 
 //Static
@@ -64,14 +67,15 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
-app.locals.loggedUser = false
+app.locals.logged = false
 
+// Nav bar dynamic content based on session
 function isLogged(req, res, next) {
   if (req.isAuthenticated()) {
-    app.locals.loggedUser = true
+    app.locals.logged = true
     next()
   } else {
-    app.locals.loggedUser = false
+    app.locals.logged = false
     next()
   }
 }
@@ -79,7 +83,7 @@ function isLogged(req, res, next) {
 const index = require('./routes/index');
 const auth = require('./routes/auth');
 const admin = require('./routes/admin');
-app.use('/admin',  isLogged, admin);
+app.use('/admin',  isLogged, isLoggedIn, isAdmin, admin);
 app.use('/', isLogged, auth);
 app.use('/', isLogged, index);
 

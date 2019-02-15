@@ -3,7 +3,14 @@ let Schema = mongoose.Schema
 
 let placeSchema = new Schema({
   name: String,
-  address: String,
+  description: String,
+  address: {
+    location: {
+      type: String,
+      default: "Point"
+    },
+    coordinates: []
+  },
   phoneNumber: String,
   type: {
     type: String,
@@ -22,6 +29,15 @@ let placeSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User"
   },
+  social: [{
+    likes: String,
+    dislikes: String,
+    twitter: String,
+    instagram: String,
+    facebook: String,
+  }],
+  pics: [String],
+  foursquareId: String
 }, { timestamps: true })
 
 module.exports= mongoose.model('Place', placeSchema)

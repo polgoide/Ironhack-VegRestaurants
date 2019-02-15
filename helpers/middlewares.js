@@ -23,10 +23,13 @@ exports.isLoggedIn = function(req, res, next) {
     res.redirect ('/login?next=' + req.path)
   }
 }
-exports.isAdmin = function(req, res, next) {
+exports.isAdmin = function (req, res, next) {
+  console.log(req.user)
   if (req.user.role === 'Admin') {
+    console.log('it is')
     next()
   } else {
-    res.send('No tienes permiso de Admin')
+    console.log('it is not')
+    res.redirect ('/login?next=' + req.path)
   }
 }

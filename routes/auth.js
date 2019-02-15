@@ -20,19 +20,6 @@ router.get('/profile', isLoggedIn, (req,res) => {
   res.render('auth/profile', req.user)
 })
 
-// Send newsletters
-// router.get('/newsletter', (req, res, next) => {
-//   User.find()
-//     .then(users => {
-//       users.forEach(u => {
-//         sendNewsletter(u.username, u.email)
-//       })
-
-//       res.send('Newsletter enviada')
-//     })
-//   .catch(e=> next(e))
-// })
-
 // Logout
 router.get('/logout', (req, res) => {
   req.logOut()
