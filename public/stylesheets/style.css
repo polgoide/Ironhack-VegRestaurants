@@ -6,6 +6,29 @@ body a {
   text-decoration: none;
   color: #000000; }
 
+input {
+  padding: 5px 10px;
+  border-radius: 5px;
+  height: 20px;
+  border: 1px solid #8cc63e;
+  background-color: #fff;
+  transition: 0.4s ease all; }
+
+input:focus {
+  background-color: #c7ed95; }
+
+input:hover {
+  background-color: #dcf2bf; }
+
+input[type=submit], button {
+  background-color: #c7ed95;
+  font-weight: bold;
+  font-size: 0.8rem;
+  border-width: 3px;
+  padding: 10px 30px;
+  height: 40px;
+  box-sizing: border-box; }
+
 nav {
   height: 60px;
   width: 100%;
@@ -55,6 +78,24 @@ footer {
   margin: 0 auto;
   box-sizing: border-box;
   color: #FFF; }
+
+.block {
+  border: 2px #c7ed95 dashed;
+  padding: 10px 20px;
+  margin: 10px 0px;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap; }
+
+.block p, .block input {
+  margin: 10px; }
+
+.admin:first-child {
+  background-color: lightsalmon; }
+
+.admin #map {
+  width: 200px;
+  height: 200px; }
 
 .loginBtn {
   box-sizing: border-box;

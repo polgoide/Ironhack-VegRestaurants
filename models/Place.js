@@ -37,7 +37,15 @@ let placeSchema = new Schema({
     facebook: String,
   }],
   pics: [String],
-  foursquareId: String
+  foursquareId:  {
+    type: String,
+    unique: true,
+  },
+  slug: String,
+  active: {
+    type: Boolean,
+    default: true,
+  }
 }, { timestamps: true })
 
 module.exports= mongoose.model('Place', placeSchema)

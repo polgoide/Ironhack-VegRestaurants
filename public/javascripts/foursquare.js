@@ -1,10 +1,19 @@
-//  Form fields
-let placeName = document.getElementById('placeName')
-let placePhone = document.getElementById('placePhone')
-
 document.addEventListener('DOMContentLoaded', () => {
   let fqBtn = document.getElementById('fqBtn')
   let fqUrl = document.getElementById('fqUrl')
+// Map
+
+mapboxgl.accessToken = 'pk.eyJ1IjoicG9sZ29pZGUiLCJhIjoiY2pzMXhrOW1uMXo0ZTQ0bzNscG52N2c3OSJ9.idfHSgW5pK1sKEx5OAtnTw';
+const map = new mapboxgl.Map({
+container: "map", 
+style: "mapbox://styles/mapbox/streets-v11",
+center: '['  + placeCoordinates.value + ']',
+zoom: 10,
+})
+const marker = new mapboxgl.Marker({
+  color: 'red',
+}).setLngLat([placeCoordinates.value]).addTo(map)
+
 }, false);
 
 fqBtn.addEventListener('click', () => {
@@ -18,32 +27,42 @@ fqBtn.addEventListener('click', () => {
     .then(res => {
       const venue = { ...res.data.response.venue }
       console.log(venue)
-      // const data = {res}
-      // data = data.data.response.venue
-      placeName.value = data.data.response.venue.name
-      placePhone.value = data.data.response.venue.contact.formattedPhone || ''
-      console.log(venue)
+      placeName.value = venue.name
+      placeDescription.value = venue.description || ''
+      placePhone.value = venue.contact.formattedPhone || ''
+      placeType.value = venue.tips.groups[0].items[0].text.includes('vegan') ? 'Vegana' : 'Vegetariana'
+      placeFoodType.value = venue.categories[0].shortName || ''
+      placeRating.value  = venue.rating || ''
+      placePriceRange.value = venue.price.currency || '$$'
+      placeOpenTimes.value = venue.hours.timeframes[0].open[0].renderedTime + ' de ' + venue.hours.timeframes[0].days || ''
+      placeAddress.value = venue.location.address + ', ' + venue.location.city || ''
+      placeCoordinates.value = venue.location.lng + ', ' + venue.location.lat || '0,0'
+      placeCity.value = venue.location.city || ''
+      placePics.value = venue.bestPhoto.prefix + '500x500' + venue.bestPhoto.suffix || ''
+      placeLikes.value = venue.likes.count || 0
+      placeDislikes.value = venue.dislike ? 1 : 0
+      placeInstagram.value = venue.contact.instagram || ''
+      placeFoursquare.value = venue.canonicalUrl || ''
+      placeTwitter.value = venue.contact.twitter || ''
+      placeFacebook.value = venue.contact.facebookUsername || ''
+      placeFoursquareId.value = venue.id || ''
+      placeSlug.value  = slugify(venue.name) || ''
     })
     .catch(e=>console.log(e))
 })
 
-// name: String,
-//   address: String,
-//   phoneNumber: String,
-//   type: {
-//     type: String,
-//     enum: ['Vegan', 'Vegetarian']
-//   },
-//   foodType: String,
-//   pictures: [String],
-//   rating: String,
-//   priceRange: String,
-//   openTimes: String,
-//   cityId: {
-//     type: Schema.Types.ObjectId,
-//     ref: "City"
-//   },
-//   authorId: {
-//     type: Schema.Types.ObjectId,
-//     ref: "User"
-//   },
+
+function slugify(string) {
+  const a = 'àáäâãåèéëêìíïîòóöôùúüûñçßÿœæŕśńṕẃǵǹḿǘẍźḧ·/_,:;'
+  const b = 'aaaaaaeeeeiiiioooouuuuncsyoarsnpwgnmuxzh------'
+  const p = new RegExp(a.split('').join('|'), 'g')
+
+  return string.toString().toLowerCase()
+      .replace(/\s+/g, '-') // Replace spaces with -
+      .replace(p, c => b.charAt(a.indexOf(c))) // Replace special characters
+      .replace(/&/g, '-and-') // Replace & with 'and'
+      .replace(/[^\w\-]+/g, '') // Remove all non-word characters
+      .replace(/\-\-+/g, '-') // Replace multiple - with single -
+      .replace(/^-+/, '') // Trim - from start of text
+      .replace(/-+$/, '') // Trim - from end of text
+}

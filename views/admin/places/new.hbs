@@ -1,68 +1,95 @@
 <h2>Add a new place</h2>
-
-<div>
+<article class="admin">
   <h3>Import a Foursquare venue</h3>
+<div class="block" hidden="{{fqBlock}}">
   <p>Foursquare URL
   <input type="text" id="fqUrl">
-  <button id="fqBtn">Submit</button>
+  <button id="fqBtn">Importar</button>
 </p>
 </div>
 <form action="/admin/places/new" method="POST">
+  <h3>Place description</h3>
+<div class="block">
 <p>Place name
-  <input type="text" name="placeName"  id="placeName">
+  <input type="text" name="name"  id="placeName" value="{{name}}" required>
 </p>
 <p>Place type
-  <select name="placeType" id="placeType">
-    <option value="Vegan">Vegan</option>
-    <option value="Vegetarian">Vegetarian</option>
+  <select name="type" id="placeType">
+    <option value="Vegan">Vegano</option>
+    <option value="Vegetarian">Vegetariano</option>
   </select>
 </p>
 <p>Food type
-  <input type="text" name="placeFoodType"  id="placeFoodType">
+  <input type="text" name="foodType"  id="placeFoodType" value="{{foodType}}">
 </p>
 <p>Description
-  <input type="text" name="placeDescription"  id="placeDescription">
+  <input type="text" name="description"  id="placeDescription" value="{{description}}">
 </p>
 <p>Rating
-  <input type="text" name="placeRating"  id="placeRating">
+  <input type="text" name="rating"  id="placeRating" value="{{rating}}">
 </p>
 <p>Price range
-  <input type="text" name="placePriceRange"  id="placePriceRange">
+  <input type="text" name="priceRange"  id="placePriceRange" value="{{priceRange}}">
 </p>
+</div>
+  <h3>Logistics</h3>
+<div class="block">
 <p>Open times
-  <input type="text" name="placeOpenTimes"  id="placeOpenTimes">
+  <input type="text" name="openTimes"  id="placeOpenTimes" value="{{openTimes}}">
 </p>
 <p>Phone number
-  <input type="text" name="placePhone"  id="placePhone">
+  <input type="text" name="phoneNumber"  id="placePhone" value="{{phoneNumber}}">
 </p>
 <p>Address
-  <input type="text" name="placeAddress"  id="placeAddress">
+  <input type="text" name="address.location"  id="placeAddress" value="{{address.location}}">
+</p>
+<p>Coordinates
+  <input type="text" name="address.coordinates"  id="placeCoordinates" value="{{address.coordinates}}" required>
 </p>
 <p>City
-  <input type="text" name="placeCity"  id="placeCity">
+  <input type="text" name="placeCity"  id="placeCity" value="{{placeCity}}" required>
 </p>
+<div id="map"></div>
+</div>
+<h3>Social</h3>
+<div class="block">
+<p>Pictures
+  <input type="text" name="pics"  id="placePics" value="{{pics}}">
+  {{#each pics}}
+  <img src="{{this.pics}}" width="150px">
+  {{/each}}
+</p>
+<p>Likes
+  <input type="text" name="social.likes"  id="placeLikes" value="{{social.likes}}">
+</p>
+<p>Dislikes
+  <input type="text" name="social.dislikes"  id="placeDislikes" value="{{social.dislikes}}">
+</p>
+<p>Instagram
+  <input type="text" name="social.instagram"  id="placeInstagram" value="{{social.instagram}}">
+</p>
+<p>Foursquare
+  <input type="text" name="social.foursquare"  id="placeFoursquare" value="{{social.foursquare}}">
+</p>
+<p>Twitter
+  <input type="text" name="social.twitter"  id="placeTwitter" value="{{social.twitter}}">
+</p>
+<p>Facebook
+  <input type="text" name="social.facebook"  id="placeFacebook" value="{{social.facebook}}">
+</p>
+</div>
+<input type="text" name="foursquareId"  id="placeFoursquareId" hidden value="{{foursquareId}}">
+<input type="text" name="slug"  id="placeSlug" hidden value="{{slug}}">
+<p>Active
+  <select name="active" id="active">
+    <option value="true">Activo</option>
+    <option value="false">Inactivo</option>
+  </select>
+</p>
+{{!-- <p><a href="/admin/places/delete/{{_id}}"><button>Borrar</button></a></p> --}}
+<input type="submit" value="Enviar">
 </form>
-
+</article>
 <script src="/javascripts/foursquare.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
-
-{{!-- name: String,
-  address: String,
-  phoneNumber: String,
-  type: {
-    type: String,
-    enum: ['Vegan', 'Vegetarian']
-  },
-  foodType: String,
-  pictures: [String],
-  rating: String,
-  priceRange: String,
-  openTimes: String,
-  cityId: {
-    type: Schema.Types.ObjectId,
-    ref: "City"
-  },
-  authorId: {
-    type: Schema.Types.ObjectId,
-    ref: "User"
-  }, --}}
+<script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>

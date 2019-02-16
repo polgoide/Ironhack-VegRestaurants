@@ -24,12 +24,9 @@ exports.isLoggedIn = function(req, res, next) {
   }
 }
 exports.isAdmin = function (req, res, next) {
-  console.log(req.user)
   if (req.user.role === 'Admin') {
-    console.log('it is')
     next()
   } else {
-    console.log('it is not')
     res.redirect ('/login?next=' + req.path)
   }
 }

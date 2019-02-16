@@ -1,0 +1,6 @@
+<h2>List of users</h2>
+{{#each users}} 
+<div>
+<h3><a href="/admin/users/edit/{{this._id}}">{{this.email}}</a></h3>
+</div>
+{{/each}}
