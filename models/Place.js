@@ -9,7 +9,10 @@ let placeSchema = new Schema({
       type: String,
       default: "Point"
     },
-    coordinates: []
+    coordinates: {
+      lat: String,
+      lng: String,
+    }
   },
   phoneNumber: String,
   type: {
@@ -36,7 +39,6 @@ let placeSchema = new Schema({
     instagram: String,
     facebook: String,
   }],
-  pics: [String],
   foursquareId:  {
     type: String,
     unique: true,

@@ -7,7 +7,7 @@
   <button id="fqBtn">Importar</button>
 </p>
 </div>
-<form action="/admin/places/new" method="POST">
+<form action="/admin/places/new" method="POST" enctype="multipart/form-data">
   <h3>Place description</h3>
 <div class="block">
 <p>Place name
@@ -43,9 +43,6 @@
 <p>Address
   <input type="text" name="address.location"  id="placeAddress" value="{{address.location}}">
 </p>
-<p>Coordinates
-  <input type="text" name="address.coordinates"  id="placeCoordinates" value="{{address.coordinates}}" required>
-</p>
 <p>City
   <input type="text" name="placeCity"  id="placeCity" value="{{placeCity}}" required>
 </p>
@@ -54,9 +51,9 @@
 <h3>Social</h3>
 <div class="block">
 <p>Pictures
-  <input type="text" name="pics"  id="placePics" value="{{pics}}">
-  {{#each pics}}
-  <img src="{{this.pics}}" width="150px">
+  <input type="text" name="pictures"  id="placePics" value="{{pictures}}">
+  {{#each pictures}}
+  <img src="{{this}}" width="150px">
   {{/each}}
 </p>
 <p>Likes
@@ -80,6 +77,8 @@
 </div>
 <input type="text" name="foursquareId"  id="placeFoursquareId" hidden value="{{foursquareId}}">
 <input type="text" name="slug"  id="placeSlug" hidden value="{{slug}}">
+<input type="text" name="address.coordinates.lat"  id="placeLat" value="{{address.coordinates.lat}}" hidden>
+<input type="text" name="address.coordinates.lng"  id="placeLng" value="{{address.coordinates.lng}}" hidden>
 <p>Active
   <select name="active" id="active">
     <option value="true">Activo</option>

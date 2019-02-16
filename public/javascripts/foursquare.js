@@ -7,12 +7,12 @@ mapboxgl.accessToken = 'pk.eyJ1IjoicG9sZ29pZGUiLCJhIjoiY2pzMXhrOW1uMXo0ZTQ0bzNsc
 const map = new mapboxgl.Map({
 container: "map", 
 style: "mapbox://styles/mapbox/streets-v11",
-center: '['  + placeCoordinates.value + ']',
+center: [placeLng.value, placeLat.value],
 zoom: 10,
 })
 const marker = new mapboxgl.Marker({
   color: 'red',
-}).setLngLat([placeCoordinates.value]).addTo(map)
+}).setLngLat([placeLng.value, placeLat.value]).addTo(map)
 
 }, false);
 
@@ -36,7 +36,8 @@ fqBtn.addEventListener('click', () => {
       placePriceRange.value = venue.price.currency || '$$'
       placeOpenTimes.value = venue.hours.timeframes[0].open[0].renderedTime + ' de ' + venue.hours.timeframes[0].days || ''
       placeAddress.value = venue.location.address + ', ' + venue.location.city || ''
-      placeCoordinates.value = venue.location.lng + ', ' + venue.location.lat || '0,0'
+      placeLat.value = venue.location.lat || 0
+      placeLng.value = venue.location.lng || 0
       placeCity.value = venue.location.city || ''
       placePics.value = venue.bestPhoto.prefix + '500x500' + venue.bestPhoto.suffix || ''
       placeLikes.value = venue.likes.count || 0
@@ -46,7 +47,7 @@ fqBtn.addEventListener('click', () => {
       placeTwitter.value = venue.contact.twitter || ''
       placeFacebook.value = venue.contact.facebookUsername || ''
       placeFoursquareId.value = venue.id || ''
-      placeSlug.value  = slugify(venue.name) || ''
+      placeSlug.value = slugify(venue.name) || ''
     })
     .catch(e=>console.log(e))
 })

@@ -42,16 +42,16 @@ router.get('/users', (req, res, next) => {
 router.get('/places/edit/:id', (req, res, next) => {
   Place.findById(req.params.id)
     .then(place => {
-    console.log(place)
+    console.log(place.pictures)
     res.render('admin/places/new', place)
   })
   .catch(e=> next(e))
   })
 
 // New place
-router.post('/places/new', isAdmin, uploadCloud.single('pics'), (req, res, next) => {
-  //req.body.pics = req.file.url
-  Place.create({...req.body, authorId: req.user._id})
+router.post('/places/new', isAdmin, uploadCloud.single('pictures'), (req, res, next) => {
+  // req.body.pictures = req.file.url
+  Place.create({...req.body, authorId: req.user._id })
   .then(()=>{
     res.redirect('/admin/places/')
   })
