@@ -9,12 +9,13 @@ passport.use(new FacebookStrategy({
   callbackURL: "http://localhost:3000/auth/callback/facebook",
   profileFields: ["email", "picture", "displayName"]
 },
-function(accessToken, refreshToken, profile, cb) {
-  User.findOne({ facebookId: profile._json.id })
+  function (accessToken, refreshToken, profile, cb) {
+  console.log(profile._json)
+  User.findOne({$or: [{ facebookId: profile._json.id },  { email: profile._json.email }]})
     .then(user => {
       if (!user) { //If the user doesn't exist, let's create it
         let u = {
-          username: profile._json.name,
+          name: profile._json.name,
           email: profile._json.email,
           photoURL: profile.photos[0].value,
           facebookId: profile.id

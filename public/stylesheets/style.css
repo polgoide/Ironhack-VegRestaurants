@@ -49,14 +49,15 @@ nav a, footer a {
   color: #FFF; }
 
 nav div {
-  width: 20%;
   margin: 0 auto; }
 
 nav input {
   height: 40px;
   font-size: 1rem;
   border: 1px solid #D0CFCE;
-  outline: none; }
+  outline: none;
+  border-width: 2px;
+  border-color: #fff; }
 
 nav input[type=text] {
   width: 60%;
@@ -65,9 +66,22 @@ nav input[type=text] {
 nav input[type=submit] {
   width: 10%; }
 
+.menu a {
+  padding: 5px; }
+
+header {
+  width: 100%;
+  height: 300px;
+  background-image: url("https://static1.squarespace.com/static/52a0e62be4b0aa09f5b95593/52a0f48ee4b0f982fc451b89/55398ad7e4b0252fc6174702/1429834460939/easy+%23vegan+tacos+%7C+RECIPE+on+hotforfoodblog.com");
+  background-size: cover; }
+
+header h2 {
+  text-align: center;
+  color: #fff;
+  font-size: 2rem;
+  margin: auto 0; }
+
 section {
-  width: 80%;
-  padding: 20px 40px;
   margin: 60px auto  0 auto; }
 
 footer {
@@ -78,6 +92,51 @@ footer {
   margin: 0 auto;
   box-sizing: border-box;
   color: #FFF; }
+
+.place-nav {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  align-content: space-between;
+  justify-content: center;
+  background-image: linear-gradient(#8cc63e, #FFF); }
+
+.place-nav div {
+  width: 25%;
+  text-align: center;
+  border-right: 1px #ccc solid; }
+
+.place-nav a {
+  transition: 0.4s ease all; }
+
+.place-nav a:hover {
+  color: #fff; }
+
+.place-nav i {
+  font-size: 1.2rem;
+  padding: 0 5px; }
+
+.place-container {
+  width: 80%;
+  margin: 0 auto; }
+
+.place-container > div {
+  padding: 20px;
+  margin: 20px 0px;
+  background-color: #FFCF75;
+  border-radius: 10px; }
+
+.place-column-50, .place-container .map {
+  width: 50%; }
+
+.admin {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px; }
+
+.admin-list {
+  width: 25%; }
 
 .block {
   border: 2px #c7ed95 dashed;
@@ -90,12 +149,17 @@ footer {
 .block p, .block input {
   margin: 10px; }
 
-.admin:first-child {
-  background-color: lightsalmon; }
-
 .admin #map {
   width: 200px;
   height: 200px; }
+
+.admin-places-card {
+  border: 1px solid #ccc;
+  display: flex; }
+
+.admin-places-card img {
+  width: 100px;
+  height: 100px; }
 
 .loginBtn {
   box-sizing: border-box;

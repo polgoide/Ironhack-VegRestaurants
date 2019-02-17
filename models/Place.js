@@ -32,13 +32,14 @@ let placeSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User"
   },
-  social: [{
+  social: {
     likes: String,
     dislikes: String,
     twitter: String,
     instagram: String,
     facebook: String,
-  }],
+    foursquare: String,
+  },
   foursquareId:  {
     type: String,
     unique: true,

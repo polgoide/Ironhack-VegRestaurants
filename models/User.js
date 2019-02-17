@@ -3,8 +3,7 @@ let Schema = mongoose.Schema
 let passportLocalMongoose = require('passport-local-mongoose')
 
 let userSchema = new Schema({
-  firstName: String,
-  lastName: String,
+  name: String,
   email: {
     type: String,
     required: true,

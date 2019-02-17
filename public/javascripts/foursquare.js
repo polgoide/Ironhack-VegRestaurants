@@ -26,7 +26,7 @@ fqBtn.addEventListener('click', () => {
   })
     .then(res => {
       const venue = { ...res.data.response.venue }
-      console.log(venue)
+      console.log(res.data.response.m )
       placeName.value = venue.name
       placeDescription.value = venue.description || ''
       placePhone.value = venue.contact.formattedPhone || ''

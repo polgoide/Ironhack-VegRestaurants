@@ -1,7 +1,13 @@
+<article class="admin">
 <h2>List of places</h2>
 {{#each places}} 
+<div class="admin-places-card">
+<img src="{{this.pictures}}">
 <div>
 <h3><a href="/admin/places/edit/{{this._id}}">{{this.name}}</a></h3>
 <p>Active: {{this.active}}</p>
+<p><a href="/admin/places/edit/{{this._id}}">Editar</a></p>
+</div>
 </div>
 {{/each}}
+</article>

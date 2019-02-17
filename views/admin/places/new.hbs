@@ -48,14 +48,20 @@
 </p>
 <div id="map"></div>
 </div>
-<h3>Social</h3>
+<h3>Pictures</h3>
 <div class="block">
-<p>Pictures
-  <input type="text" name="pictures"  id="placePics" value="{{pictures}}">
+<p>
+  <input type="text" name="pictures"  id="placePics">
   {{#each pictures}}
   <img src="{{this}}" width="150px">
+  <input type="text" name="pictures"  id="placePics" value="{{this}}">
   {{/each}}
+  Add a new picture:
+  <input type="file" name="pictures" id="placePics" />
 </p>
+</div>
+<h3>Social</h3>
+<div class="block">
 <p>Likes
   <input type="text" name="social.likes"  id="placeLikes" value="{{social.likes}}">
 </p>

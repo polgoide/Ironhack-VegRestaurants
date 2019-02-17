@@ -1,0 +1,28 @@
+<article class="admin">
+<h2>{{user.email}}</h2>
+<div>
+  <form action="/admin/users/{{user._id}}" method="POST">
+  <select name="role">
+    <option value="Guest">Guest</option>
+    <option value="Admin">Admin</option>
+  </select>
+  <select name="active">
+    <option value="true">Active</option>
+    <option value="false">Ban</option>
+  </select>
+  <input type="Submit">
+  </form>
+  <ul>
+    <li>Nombre: {{user.name}}</li>
+    <li>Email: {{user.email}}</li>
+    <li>Registrado el: {{user.created_at}}</li>
+    </ul>
+</div>
+<div>
+  {{#each comments}}
+  <p>{{this.body}}</p>
+  <p>{{this.pictures}}</p>
+  <p>{{this.createdAt}}</p>
+  {{/each}}
+</div>
+</article>
