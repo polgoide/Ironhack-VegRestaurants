@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  padding: 0px;
+  margin-top: 0px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+
+html {
+  margin: 0;
+  padding: 0; }
+
+a {
+  text-decoration: none; }
+
+.city-title {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end; }
+
+.nav-btn {
+  border: solid #48555c;
+  position: relative;
+  border: none;
+  border-radius: 20px;
+  height: 30px;
+  cursor: pointer;
+  font-family: Avenir;
+  font-size: 1 em;
+  transition: all .3s ease;
+  outline: none; }
+
+.nav-btn.hover {
+  opacity: 7; }
+
+#container-city {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  background-color: #c0d0d8;
+  height: 100px;
+  width: 100vw; }
+
+.cover {
+  margin: 10px;
+  padding: none;
+  width: 100vw;
+  height: 88vh; }
+
+.cov-all {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: #535050;
+  font-family: Avenir;
+  font-size: 1.5em; }
+
+h3 {
+  font-family: Avenir;
+  font-size: 1.5em;
+  color: #395364; }
+
+/*# sourceMappingURL=style.css.map */

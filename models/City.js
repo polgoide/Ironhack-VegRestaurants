@@ -1,25 +1,34 @@
 let mongoose = require('mongoose')
 let Schema = mongoose.Schema
-// Passport  plugin to replace the String password
-let passportLocalMongoose = require('passport-local-mongoose')
 
 let citySchema = new Schema({
-username: {
-  type: String,
-  required: true
-},
-  email: String,
-  facebookId: String,
-  photoURL: String,
-  role: {
+  cityname: {
     type: String,
-    enum: ['Admin', 'Editor', 'Guest'],
-    default: 'Guest',
+    required: true
+  },
+  photoURL: {
+    type:String,
+    default: 'https://www.worldatlas.com/r/w727-h434-c727x434/upload/4f/df/5e/shutterstock-501836233.jpg'
+  },
+  likes:{
+    type:String,
+    default: '0'
+  },address: {
+    location: {
+      type: String,
+      default: 'Point',
+    },
+    coordinates: []
   }
-// password: String
-}, {timestamps:true})
+}, {
+  timestamps: true,
+})
+  // placeId: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: "Place",
+  //   default: 1
+  // }
 
-citySchema.plugin(passportLocalMongoose, {
-  usernameField: "email"})
+
 
 module.exports = mongoose.model('City', citySchema)

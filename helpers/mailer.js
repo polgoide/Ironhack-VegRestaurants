@@ -10,7 +10,7 @@ let transport = nodemailer.createTransport({
   }
 })
 
-const accountCreated = hbs.compile(fs.readFileSync((__dirname, './views/mail/accountCreated.hbs'), 'utf8'));
+// const accountCreated = hbs.compile(fs.readFileSync((__dirname, './views/mail/accountCreated.hbs'), 'utf8'));
 
 
 exports.sendWelcomeMail = function (name, email) {
