@@ -44,14 +44,15 @@
 </div>
 <h3>Pictures</h3>
 <div class="block">
-<p>Add a new pic <div id="addPicBtn"><i class="material-icons">add_circle</i></div>
+<p>
   <div id="addPicContainer">
-    <input type="text" name="pictures" id="placePics">
+    <input type="text" name="pictures" id="placePics" size="40"> <i class="material-icons" id="addPicBtn">add_circle</i>
     </div>
   {{#each pictures}}
-  <div>
+  <div class="admin-place-pic">
   <img src="{{this}}" width="150px">
-  <input type="text" name="pictures"  id="placePics" value="{{this}}">
+  <input type="text" name="pictures"  id="placePics" value="{{this}}"  size="40">
+  <i class="material-icons" id="DltPicBtn">delete</i>
   </div>
   {{/each}}
 </p>

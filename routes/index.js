@@ -31,6 +31,13 @@ router.get('/comer/:id', (req, res, next) => {
   
 })
 
+router.get('/terminos', (req, res, next) => {
+  res.render('terminos');
+})
+router.get('/privacidad', (req, res, next) => {
+      res.render('privacy');
+})
+
 /* GET home page */
 router.get('/', (req, res, next) => {
   Place.find({active: true})

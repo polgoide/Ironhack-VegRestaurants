@@ -1,7 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
   let fqBtn = document.getElementById('fqBtn')
   let fqUrl = document.getElementById('fqUrl')
+
   let addPicBtn = document.getElementById('addPicBtn')
+
+  addPicBtn.addEventListener('click', () => {
+    console.log('miau')
+    document.getElementById('addPicContainer').appendChild('<input type="text" name="pictures" id="placePics">')
+  })
+
+let DltPicBtn = document.getElementById('DltPicBtn')
+
+DltPicBtn.addEventListener('click', e => {
+  console.log('delete')
+  e.target.parentNode.parentNode.removeChild()
+})
 // Map
 
 mapboxgl.accessToken = 'pk.eyJ1IjoicG9sZ29pZGUiLCJhIjoiY2pzMXhrOW1uMXo0ZTQ0bzNscG52N2c3OSJ9.idfHSgW5pK1sKEx5OAtnTw';
@@ -22,6 +35,7 @@ fqBtn.addEventListener('click', () => {
 let urlVenue = `https://api.foursquare.com/v2/venues/${fqUrl.value}?client_id=DRE3GPNTW2X1IJJDU02U2C02B3XGVUP0XDGYSF0NMKJQOX5D&client_secret=3QXPOGKXLDMMTGZXIRIIOXTQBM0V4AEITQT4FIHEMSD2JFF4&v=20190213`
 let urlPics = `https://api.foursquare.com/v2/venues/${fqUrl.value}/photos?client_id=DRE3GPNTW2X1IJJDU02U2C02B3XGVUP0XDGYSF0NMKJQOX5D&client_secret=3QXPOGKXLDMMTGZXIRIIOXTQBM0V4AEITQT4FIHEMSD2JFF4&v=20190213`
 
+  
   // Promise.all([
   //   axios.get(urlVenue, {
   //     headers: {
@@ -70,10 +84,9 @@ let urlPics = `https://api.foursquare.com/v2/venues/${fqUrl.value}/photos?client
   .catch(e=> console.log(e))
 })
 
-addPicBtn.addEventListener('click', () => {
-  document.getElementById('addPicContainer').appendChild('<input type="text" name="pictures" id="placePics">')
-})
 
+
+// Slug urls
 function slugify(string) {
   const a = 'àáäâãåèéëêìíïîòóöôùúüûñçßÿœæŕśńṕẃǵǹḿǘẍźḧ·/_,:;'
   const b = 'aaaaaaeeeeiiiioooouuuuncsyoarsnpwgnmuxzh------'
