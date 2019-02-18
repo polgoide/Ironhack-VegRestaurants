@@ -2,7 +2,40 @@ let mongoose = require('mongoose')
 let Schema = mongoose.Schema
 
 let citySchema = new Schema({
+<<<<<<< HEAD
   
 }, { timestamps: true })
 
 module.exports= mongoose.model('City', citySchema)
+=======
+  cityname: {
+    type: String,
+    required: true
+  },
+  photoURL: {
+    type:String,
+    default: 'https://www.worldatlas.com/r/w727-h434-c727x434/upload/4f/df/5e/shutterstock-501836233.jpg'
+  },
+  likes:{
+    type:String,
+    default: '0'
+  },address: {
+    location: {
+      type: String,
+      default: 'Point',
+    },
+    coordinates: []
+  }
+}, {
+  timestamps: true,
+})
+  // placeId: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: "Place",
+  //   default: 1
+  // }
+
+
+
+module.exports = mongoose.model('City', citySchema)
+>>>>>>> 4daf11fc66e17c68d8a7c932812b4f2aa1d066d3

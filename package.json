@@ -8,6 +8,7 @@
     "dev-windows": "nodemon ./bin/www"
   },
   "dependencies": {
+    "bcrypt": "^3.0.4",
     "body-parser": "^1.18.3",
     "cloudinary": "^1.13.2",
     "connect-mongo": "^2.0.3",
@@ -15,8 +16,13 @@
     "dotenv": "^6.2.0",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
+<<<<<<< HEAD
     "hbs": "^4.0.1",
     "material-icons": "^0.3.0",
+=======
+    "handlebars": "^4.1.0",
+    "hbs": "^4.0.1",
+>>>>>>> 4daf11fc66e17c68d8a7c932812b4f2aa1d066d3
     "mongoose": "^5.2.10",
     "morgan": "^1.9.0",
     "multer": "^1.4.1",

@@ -14,7 +14,7 @@ const MongoStore = require("connect-mongo")(session);
 let { isRole, isAdmin, isLoggedIn, isAuth } = require('./helpers/middlewares')
 
 mongoose
-  .connect('mongodb://localhost/project2', {useNewUrlParser: true})
+  .connect('mongodb://localhost/cities', {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -82,10 +82,17 @@ function isLogged(req, res, next) {
 
 const index = require('./routes/index');
 const auth = require('./routes/auth');
+<<<<<<< HEAD
 const admin = require('./routes/admin');
 app.use('/admin',  isLogged, isLoggedIn, isAdmin, admin);
 app.use('/', isLogged, auth);
 app.use('/', isLogged, index);
+=======
+const cities = require('./routes/cities');
+app.use('/', cities);
+app.use('/', auth);
+app.use('/', index);
+>>>>>>> 4daf11fc66e17c68d8a7c932812b4f2aa1d066d3
 
 
 module.exports = app;
