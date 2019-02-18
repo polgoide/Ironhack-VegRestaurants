@@ -2,6 +2,11 @@
 <div class="admin-list">
   <h3><a href="/admin/cities/">Cities</a></h3>
   <p><a href="/admin/cities/new">Add new</a></p>
+    <ul>
+    {{#each cities}}
+    <li><a href="/admin/cities/edit/{{this._id}}">{{this.cityname}}</a></li>
+    {{/each}}
+  </ul>
 </div>
 <div class="admin-list">
   <h3><a href="/admin/places/">Places</a></h3>

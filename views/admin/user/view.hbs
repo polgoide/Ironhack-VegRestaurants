@@ -15,14 +15,13 @@
   <ul>
     <li>Nombre: {{user.name}}</li>
     <li>Email: {{user.email}}</li>
-    <li>Registrado el: {{user.created_at}}</li>
+    <li>Registrado el: {{user.createdAt}}</li>
     </ul>
 </div>
 <div>
+  <h3>Comentarios de este usuario</h3>
   {{#each comments}}
-  <p>{{this.body}}</p>
-  <p>{{this.pictures}}</p>
-  <p>{{this.createdAt}}</p>
+  <p>Comentario: {{this.body}}</p>
   {{/each}}
 </div>
 </article>

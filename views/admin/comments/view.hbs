@@ -1,5 +1,5 @@
 <article class="admin">
-<h2>{{comment.email}}</h2>
+<h2>Ver comentario</h2>
 <div>
   <form action="/admin/comments/{{comment._id}}" method="POST">
   <select name="active">
@@ -10,9 +10,11 @@
   </form>
   <h3>Comment:</h3>
   <ul>
-    <li>{{comment.body}}</li>
-    <li>{{comment.pictures}}</li>
-    <li>Posteado el: {{comment.createdAt}}</li>
+    <li>Comentario: {{body}}</li>
+    {{#each pictures}}
+    <li><img src="{{this}}" alt=""></li>
+    {{/each}}
+    <li>Posteado el: {{createdAt}}</li>
     </ul>
   <h3>Post:</h3>
   <ul>
@@ -20,9 +22,9 @@
     </ul>
   <h3>User:</h3>
   <ul>
-    <li>Nombre: {{user.name}}</li>
-    <li>Email: {{user.email}}</li>
-    <li>Registrado el: {{user.createdAt}}</li>
+    <li>Nombre: {{authorId.name}}</li>
+    <li>Email: {{authorId.email}}</li>
+    <li>Registrado el: {{authorId.createdAt}}</li>
     </ul>
 </div>
 </article>

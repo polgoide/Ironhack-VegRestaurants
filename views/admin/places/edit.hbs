@@ -1,57 +1,59 @@
 <h2>Add a new place</h2>
 <article class="admin">
-  <h3>Import a Foursquare venue</h3>
-<div class="block" hidden="{{fqBlock}}">
-  <p>Foursquare URL
-  <input type="text" id="fqUrl">
-  <button id="fqBtn">Importar</button>
-</p>
-</div>
-<form action="/admin/places/new" method="POST" enctype="multipart/form-data">
+
+<form action="/admin/places/edit/{{_id}}" method="POST" enctype="multipart/form-data">
   <h3>Place description</h3>
 <div class="block">
 <p>Place name
-  <input type="text" name="name"  id="placeName" required>
+  <input type="text" name="name"  id="placeName" value="{{name}}" required>
 </p>
-<p>Place type
+<p>Place type ({{type}})
   <select name="type" id="placeType">
     <option value="Vegan">Vegano</option>
     <option value="Vegetarian">Vegetariano</option>
   </select>
 </p>
 <p>Food type
-  <input type="text" name="foodType"  id="placeFoodType">
+  <input type="text" name="foodType"  id="placeFoodType" value="{{foodType}}">
 </p>
 <p>Description
-  <input type="text" name="description"  id="placeDescription">
+  <input type="text" name="description"  id="placeDescription" value="{{description}}">
 </p>
 <p>Rating
-  <input type="text" name="rating"  id="placeRating">
+  <input type="text" name="rating"  id="placeRating" value="{{rating}}">
 </p>
 <p>Price range
-  <input type="text" name="priceRange"  id="placePriceRange">
+  <input type="text" name="priceRange"  id="placePriceRange" value="{{priceRange}}">
 </p>
 </div>
   <h3>Logistics</h3>
 <div class="block">
 <p>Open times
-  <input type="text" name="openTimes"  id="placeOpenTimes">
+  <input type="text" name="openTimes"  id="placeOpenTimes" value="{{openTimes}}">
 </p>
 <p>Phone number
-  <input type="text" name="phoneNumber"  id="placePhone">
+  <input type="text" name="phoneNumber"  id="placePhone" value="{{phoneNumber}}">
 </p>
 <p>Address
-  <input type="text" name="address.location"  id="placeAddress">
+  <input type="text" name="address.location"  id="placeAddress" value="{{address.location}}">
 </p>
 <p>City
-  <input type="text" name="placeCity"  id="placeCity">
+  <input type="text" name="placeCity"  id="placeCity" value="{{placeCity}}">
 </p>
 <div id="map"></div>
 </div>
 <h3>Pictures</h3>
 <div class="block">
-<p>Add one or more pics separated by comma
-  <input type="text" name="pictures"  id="placePics">
+<p>Add a new pic <div id="addPicBtn"><i class="material-icons">add_circle</i></div>
+  <div id="addPicContainer">
+    <input type="text" name="pictures" id="placePics">
+    </div>
+  {{#each pictures}}
+  <div>
+  <img src="{{this}}" width="150px">
+  <input type="text" name="pictures"  id="placePics" value="{{this}}">
+  </div>
+  {{/each}}
 </p>
 </div>
 <h3>Social</h3>
@@ -89,6 +91,5 @@
 <input type="submit" value="Enviar">
 </form>
 </article>
-<script src="/javascripts/foursquare.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
 <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>

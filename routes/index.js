@@ -5,11 +5,15 @@ const Comment = require('../models/Comment.js')
 const uploadCloud = require('../helpers/cloudinary')
 
 // Place: add comment
-router.post('/comer/:id',  uploadCloud.single('pictures'), (req, res, next) => {
-  req.body.pictures = req.file.url
-  const { id } = req.params
-  Comment.create({...req.body, place: req.params.id, authorId:  req.user._id, $push: {pictures: req.file.url}})
-    .then(() => console.log(req.body)) // res.redirect('/comer/' + id + '/#opiniones')
+router.post('/comer/:id',
+//islogged
+  uploadCloud.single('pictures'), (req, res, next) => {
+    if (req.file) req.body.pictures = [req.file.url]
+    console.log(req.body)
+  req.body.authorId = req.user._id
+    req.body.place = req.params.id
+  Comment.create(req.body)
+    .then(comment => res.redirect('/comer/' + req.params.id + '/#opiniones'))
     .catch(e=> next(e))
 })
 

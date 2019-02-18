@@ -7,7 +7,7 @@ let commentSchema = new Schema({
       ref: "Place"
     },
     body: String,
-    pics: [String],
+    pictures: [String],
     authorId: {
       type: Schema.Types.ObjectId,
       ref: "User"

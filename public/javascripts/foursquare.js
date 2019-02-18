@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   let fqBtn = document.getElementById('fqBtn')
   let fqUrl = document.getElementById('fqUrl')
+  let addPicBtn = document.getElementById('addPicBtn')
 // Map
 
 mapboxgl.accessToken = 'pk.eyJ1IjoicG9sZ29pZGUiLCJhIjoiY2pzMXhrOW1uMXo0ZTQ0bzNscG52N2c3OSJ9.idfHSgW5pK1sKEx5OAtnTw';
@@ -16,17 +17,34 @@ const marker = new mapboxgl.Marker({
 
 }, false);
 
+
 fqBtn.addEventListener('click', () => {
-  let url = `https://api.foursquare.com/v2/venues/${fqUrl.value}?client_id=DRE3GPNTW2X1IJJDU02U2C02B3XGVUP0XDGYSF0NMKJQOX5D&client_secret=3QXPOGKXLDMMTGZXIRIIOXTQBM0V4AEITQT4FIHEMSD2JFF4&v=20190213`
-  axios.get(url, {
-    headers: {
-      "Accept-Language": "es",
-      "Content-Type": "application/json"
-    }
-  })
+let urlVenue = `https://api.foursquare.com/v2/venues/${fqUrl.value}?client_id=DRE3GPNTW2X1IJJDU02U2C02B3XGVUP0XDGYSF0NMKJQOX5D&client_secret=3QXPOGKXLDMMTGZXIRIIOXTQBM0V4AEITQT4FIHEMSD2JFF4&v=20190213`
+let urlPics = `https://api.foursquare.com/v2/venues/${fqUrl.value}/photos?client_id=DRE3GPNTW2X1IJJDU02U2C02B3XGVUP0XDGYSF0NMKJQOX5D&client_secret=3QXPOGKXLDMMTGZXIRIIOXTQBM0V4AEITQT4FIHEMSD2JFF4&v=20190213`
+
+  // Promise.all([
+  //   axios.get(urlVenue, {
+  //     headers: {
+  //       "Accept-Language": "es",
+  //       "Content-Type": "application/json"
+  //     }
+  //   }),
+  //   axios.get(urlPics, {
+  //     headers: {
+  //       "Accept-Language": "es",
+  //       "Content-Type": "application/json"
+  //     }
+  //   })
+  // ])
+    axios.get(urlVenue, {
+      headers: {
+        "Accept-Language": "es",
+        "Content-Type": "application/json"
+      }
+    })
     .then(res => {
       const venue = { ...res.data.response.venue }
-      console.log(res.data.response.m )
+      console.log(venue)
       placeName.value = venue.name
       placeDescription.value = venue.description || ''
       placePhone.value = venue.contact.formattedPhone || ''
@@ -48,10 +66,13 @@ fqBtn.addEventListener('click', () => {
       placeFacebook.value = venue.contact.facebookUsername || ''
       placeFoursquareId.value = venue.id || ''
       placeSlug.value = slugify(venue.name) || ''
-    })
-    .catch(e=>console.log(e))
+  })
+  .catch(e=> console.log(e))
 })
 
+addPicBtn.addEventListener('click', () => {
+  document.getElementById('addPicContainer').appendChild('<input type="text" name="pictures" id="placePics">')
+})
 
 function slugify(string) {
   const a = 'àáäâãåèéëêìíïîòóöôùúüûñçßÿœæŕśńṕẃǵǹḿǘẍźḧ·/_,:;'
