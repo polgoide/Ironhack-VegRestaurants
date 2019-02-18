@@ -1,6 +1,5 @@
 body {
   margin: 0;
-<<<<<<< HEAD
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 body a {
@@ -11,7 +10,7 @@ input {
   padding: 5px 10px;
   border-radius: 5px;
   height: 20px;
-  border: 1px solid #8cc63e;
+  border: 1px solid #69a7c0;
   background-color: #fff;
   transition: 0.4s ease all; }
 
@@ -33,14 +32,14 @@ input[type=submit], button {
 nav {
   height: 60px;
   width: 100%;
-  background-color: #8cc63e;
+  background-color: #46a0c3;
   padding: 10px 20px;
   margin: 0 auto;
   box-sizing: border-box;
   position: fixed;
   top: 0;
   left: 0;
-  color: #FFF;
+  color: #5e739b;
   font-size: 1.2rem;
   display: flex;
   flex-wrap: wrap;
@@ -70,6 +69,16 @@ nav input[type=submit] {
 .menu a {
   padding: 5px; }
 
+.search {
+  color: white;
+  display: flex;
+  justify-content: flex-end;
+  align-content: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 70%;
+  height: 20px; }
+
 header {
   width: 100%;
   height: 300px;
@@ -82,17 +91,79 @@ header h2 {
   font-size: 2rem;
   margin: auto 0; }
 
+#page-name {
+  display: flex;
+  text-align: center; }
+
 section {
   margin: 60px auto  0 auto; }
+
+.fot-body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column; }
+
+.fot-main {
+  flex: 1 0 auto; }
 
 footer {
   height: 120px;
   width: 100%;
-  background-color: #8cc63e;
+  background-color: #afdb8b;
   padding: 10px 40px;
   margin: 0 auto;
   box-sizing: border-box;
   color: #FFF; }
+
+.city-title {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center; }
+
+.nav-btn {
+  border: solid #48555c;
+  position: relative;
+  border: none;
+  border-radius: 20px;
+  height: 30px;
+  cursor: pointer;
+  font-family: Avenir;
+  font-size: 1 em;
+  transition: all .3s ease;
+  outline: none; }
+
+.nav-btn.hover {
+  opacity: 7; }
+
+#map {
+  width: 50%;
+  height: 700px; }
+
+.cover {
+  margin: 10px;
+  padding: none;
+  width: 100vw;
+  height: 88vh; }
+
+.cov-all {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  color: #535050;
+  font-family: Avenir;
+  font-size: 1.5em; }
+
+#imgs-cities {
+  width: 500px;
+  height: 300px;
+  margin: 60px; }
+
+h3 {
+  font-family: Avenir;
+  font-size: 1.5em;
+  color: #395364; }
 
 .place-nav {
   width: 100%;
@@ -208,8 +279,7 @@ footer {
 .loginBtn--facebook:hover,
 .loginBtn--facebook:focus {
   background-color: #5B7BD5;
-  background-image: linear-gradient(#5B7BD5, #4864B1); }
-=======
+  background-image: linear-gradient(#5B7BD5, #4864B1);
   padding: 0px;
   margin-top: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
@@ -220,54 +290,5 @@ html {
 
 a {
   text-decoration: none; }
-
-.city-title {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-end; }
-
-.nav-btn {
-  border: solid #48555c;
-  position: relative;
-  border: none;
-  border-radius: 20px;
-  height: 30px;
-  cursor: pointer;
-  font-family: Avenir;
-  font-size: 1 em;
-  transition: all .3s ease;
-  outline: none; }
-
-.nav-btn.hover {
-  opacity: 7; }
-
-#container-city {
-  display: flex;
-  align-items: center;
-  flex-wrap: nowrap;
-  justify-content: space-around;
-  background-color: #c0d0d8;
-  height: 100px;
-  width: 100vw; }
-
-.cover {
-  margin: 10px;
-  padding: none;
-  width: 100vw;
-  height: 88vh; }
-
-.cov-all {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  color: #535050;
-  font-family: Avenir;
-  font-size: 1.5em; }
-
-h3 {
-  font-family: Avenir;
-  font-size: 1.5em;
-  color: #395364; }
->>>>>>> 4daf11fc66e17c68d8a7c932812b4f2aa1d066d3
 
 /*# sourceMappingURL=style.css.map */

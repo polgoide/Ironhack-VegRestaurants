@@ -1,9 +1,4 @@
-<div id="container-city">
-  <h2 class="city-title">Welcome to VegRestaurants</h2>
-  <button class="nav-btn"><a href="/">Home</a></button>
-  <button class="nav-btn"><a href="/profile">Profile</a></button>
-  <button class="nav-btn"><a href="/places">Places</a></button>
-</div>
+
 <div>
 <img class="cover"
     src="https://i2.cdn.turner.com/money/dam/assets/141001144835-innovative-cities-philly-1024x576.jpg" 
@@ -14,30 +9,12 @@
 <h3>Pick one city</h3>
 {{#each cities as |city|}}
 <a href="/cities/detail/{{city._id}}">
-    <h3>{{city.cityname}}</h3>
-    <img src="{{city.photoURL}}" alt="{{city.cityname}}">
+    <h3 class="city-title">{{city.cityname}}</h3>
+    <img id="imgs-cities" src="{{city.photoURL}}" alt="{{city.cityname}}">
 </a>
 {{/each}}
 </div>
 
-  {{!-- <div class="row">
-    <div class="col s12 m7">
-      <div class="card">
-        <div class="card-image">
-          <img src="images/sample-1.jpg">
-          <span class="card-title">Card Title</span>
-        </div>
-        <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively.</p>
-        </div>
-        <div class="card-action">
-          <a href="#">This is a link</a>
-        </div>
-      </div>
-    </div>
-  </div>
-<button><a href="cities/detail">Detail</a></button> --}}
 
 <script>
     mapboxgl.accessToken = "pk.eyJ1IjoiZGFuaWVsYXpyIiwiYSI6ImNqczF4a29xMjF5c3E0M28zdjdmbGtuOGYifQ.qi5aM2jCWVOdO6quS6IqFQ";
@@ -49,7 +26,7 @@ center:[{{address.coordinates}}]
 })
 
 const marker = new mapboxgl.Marker({
-    color:'red'
+    color:'green'
 })
 .setLngLat([{{address.coordinates}}])
 .addTo(map)
