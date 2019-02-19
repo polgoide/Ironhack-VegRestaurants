@@ -164,6 +164,9 @@ footer {
   width: 100px;
   height: 100px; }
 
+.addPicContainer {
+  width: 100%; }
+
 .city-title {
   display: flex;
   align-items: flex-start;

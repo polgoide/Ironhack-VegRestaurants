@@ -44,7 +44,11 @@
   <input type="text" name="address.location"  id="placeAddress">
 </p>
 <p>City
-  <input type="text" name="placeCity"  id="placeCity">
+  <select name="cityId" id="placeCity">
+    {{#each cities}}
+    <option value="{{this._id}}">{{this.cityname}}</option>
+    {{/each}}
+  </select>
 </p>
 <div id="map"></div>
 </div>
@@ -89,6 +93,6 @@
 <input type="submit" value="Enviar">
 </form>
 </article>
-<script src="/javascripts/foursquare.js"></script>
+<script src="/javascripts/place.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
 <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>

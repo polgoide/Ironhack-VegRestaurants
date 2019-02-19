@@ -136,18 +136,26 @@ router.get('/users', (req, res, next) => {
 
 // Edit place
 router.post('/places/edit/:id', (req, res, next) => {
-  Place.findByIdAndUpdate(req.params.id,  {$push :{pictures: req.body.pictures}})
-    .then(() => {
-    res.redirect('admin/places/')
+  console.log('f',req.body)
+  Place.findByIdAndUpdate(req.params.id, req.body)
+    .then(place => {
+      place.pictures.push(req.body.pictures)
+      place.save()
+
+      console.log('p', place)
+      console.log('b',req.body)
+    res.render('admin/places/edit', {place})
   })
   .catch(e=> next(e))
 })
 
 router.get('/places/edit/:id', (req, res, next) => {
-  Place.findById(req.params.id)
-    .then(place => {
-    console.log(place.pictures)
-    res.render('admin/places/edit', place)
+  Promise.all([
+    Place.findById(req.params.id),
+    City.find()
+  ])
+    .then(results => {
+    res.render('admin/places/edit', {place: results[0], cities: results[1]})
   })
   .catch(e=> next(e))
 })
@@ -162,7 +170,9 @@ router.post('/places/new', isAdmin, uploadCloud.single('pictures'), (req, res, n
   })
 
 router.get('/places/new', (req, res, next) => {
-  res.render('admin/places/new')
+  City.find()
+    .then(cities => res.render('admin/places/new', { cities })
+    )
 })
   
 router.get('/places', (req, res, next) => {

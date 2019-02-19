@@ -1,58 +1,61 @@
 <h2>Add a new place</h2>
 <article class="admin">
 
-<form action="/admin/places/edit/{{_id}}" method="POST" enctype="multipart/form-data">
+<form action="/admin/places/edit/{{place._id}}" method="POST">
   <h3>Place description</h3>
 <div class="block">
 <p>Place name
-  <input type="text" name="name"  id="placeName" value="{{name}}" required>
+  <input type="text" name="name"  id="placeName" value="{{place.name}}" required>
 </p>
-<p>Place type ({{type}})
+<p>Place type ({{place.type}})
   <select name="type" id="placeType">
     <option value="Vegan">Vegano</option>
     <option value="Vegetarian">Vegetariano</option>
   </select>
 </p>
 <p>Food type
-  <input type="text" name="foodType"  id="placeFoodType" value="{{foodType}}">
+  <input type="text" name="foodType"  id="placeFoodType" value="{{place.foodType}}">
 </p>
 <p>Description
-  <input type="text" name="description"  id="placeDescription" value="{{description}}">
+  <input type="text" name="description"  id="placeDescription" value="{{place.description}}">
 </p>
 <p>Rating
-  <input type="text" name="rating"  id="placeRating" value="{{rating}}">
+  <input type="text" name="rating"  id="placeRating" value="{{place.rating}}">
 </p>
 <p>Price range
-  <input type="text" name="priceRange"  id="placePriceRange" value="{{priceRange}}">
+  <input type="text" name="priceRange"  id="placePriceRange" value="{{place.priceRange}}">
 </p>
 </div>
   <h3>Logistics</h3>
 <div class="block">
 <p>Open times
-  <input type="text" name="openTimes"  id="placeOpenTimes" value="{{openTimes}}">
+  <input type="text" name="openTimes"  id="placeOpenTimes" value="{{place.openTimes}}">
 </p>
 <p>Phone number
-  <input type="text" name="phoneNumber"  id="placePhone" value="{{phoneNumber}}">
+  <input type="text" name="phoneNumber"  id="placePhone" value="{{place.phoneNumber}}">
 </p>
 <p>Address
-  <input type="text" name="address.location"  id="placeAddress" value="{{address.location}}">
+  <input type="text" name="address.location"  id="placeAddress" value="{{place.address.location}}">
 </p>
 <p>City
-  <input type="text" name="placeCity"  id="placeCity" value="{{placeCity}}">
+    <select name="cityId" id="placeCity">
+    {{#each cities}}
+    <option value="{{this._id}}">{{this.cityname}}</option>
+    {{/each}}
+  </select>
 </p>
 <div id="map"></div>
 </div>
 <h3>Pictures</h3>
 <div class="block">
-<p>
+<p>Add a a new picture <i class="material-icons" id="addPicBtn">add_circle</i>
   <div id="addPicContainer">
-    <input type="text" name="pictures" id="placePics" size="40"> <i class="material-icons" id="addPicBtn">add_circle</i>
     </div>
-  {{#each pictures}}
+  {{#each place.pictures}}
   <div class="admin-place-pic">
   <img src="{{this}}" width="150px">
   <input type="text" name="pictures"  id="placePics" value="{{this}}"  size="40">
-  <i class="material-icons" id="DltPicBtn">delete</i>
+  <i class="material-icons DltPicBtn" id="DltPicBtn">delete</i>
   </div>
   {{/each}}
 </p>
@@ -60,28 +63,28 @@
 <h3>Social</h3>
 <div class="block">
 <p>Likes
-  <input type="text" name="social.likes"  id="placeLikes" value="{{social.likes}}">
+  <input type="text" name="social.likes"  id="placeLikes" value="{{place.social.likes}}">
 </p>
 <p>Dislikes
-  <input type="text" name="social.dislikes"  id="placeDislikes" value="{{social.dislikes}}">
+  <input type="text" name="social.dislikes"  id="placeDislikes" value="{{place.social.dislikes}}">
 </p>
 <p>Instagram
-  <input type="text" name="social.instagram"  id="placeInstagram" value="{{social.instagram}}">
+  <input type="text" name="social.instagram"  id="placeInstagram" value="{{place.social.instagram}}">
 </p>
 <p>Foursquare
-  <input type="text" name="social.foursquare"  id="placeFoursquare" value="{{social.foursquare}}">
+  <input type="text" name="social.foursquare"  id="placeFoursquare" value="{{place.social.foursquare}}">
 </p>
 <p>Twitter
-  <input type="text" name="social.twitter"  id="placeTwitter" value="{{social.twitter}}">
+  <input type="text" name="social.twitter"  id="placeTwitter" value="{{place.social.twitter}}">
 </p>
 <p>Facebook
-  <input type="text" name="social.facebook"  id="placeFacebook" value="{{social.facebook}}">
+  <input type="text" name="social.facebook"  id="placeFacebook" value="{{place.social.facebook}}">
 </p>
 </div>
-<input type="text" name="foursquareId"  id="placeFoursquareId" hidden value="{{foursquareId}}">
+<input type="text" name="foursquareId"  id="placeFoursquareId" hidden value="{{place.foursquareId}}">
 <input type="text" name="slug"  id="placeSlug" hidden value="{{slug}}">
-<input type="text" name="address.coordinates.lat"  id="placeLat" value="{{address.coordinates.lat}}" hidden>
-<input type="text" name="address.coordinates.lng"  id="placeLng" value="{{address.coordinates.lng}}" hidden>
+<input type="text" name="address.coordinates.lat"  id="placeLat" value="{{place.address.coordinates.lat}}" hidden>
+<input type="text" name="address.coordinates.lng"  id="placeLng" value="{{place.address.coordinates.lng}}" hidden>
 <p>Active
   <select name="active" id="active">
     <option value="true">Activo</option>
@@ -92,5 +95,6 @@
 <input type="submit" value="Enviar">
 </form>
 </article>
+<script src="/javascripts/place.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
 <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>

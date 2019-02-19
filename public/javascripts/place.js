@@ -6,13 +6,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   addPicBtn.addEventListener('click', () => {
     console.log('miau')
-    document.getElementById('addPicContainer').appendChild('<input type="text" name="pictures" id="placePics">')
+    let newPic = document.createElement('input')
+    newPic.setAttribute('name', 'pictures')
+    newPic.setAttribute('size', '40')
+    document.getElementById('addPicContainer').appendChild(newPic)
   })
 
-let DltPicBtn = document.getElementById('DltPicBtn')
-
+let DltPicBtn = document.querySelector('.DltPicBtn')
+console.log(DltPicBtn[0])
 DltPicBtn.addEventListener('click', e => {
-  console.log('delete')
+  console.log(e.target.parentNode)
   e.target.parentNode.parentNode.removeChild()
 })
 // Map
