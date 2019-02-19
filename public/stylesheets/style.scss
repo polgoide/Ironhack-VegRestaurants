@@ -11,7 +11,7 @@ input {
   padding: 5px 10px;
   border-radius: 5px;
   height: 20px;
-  border: 1px solid #8cc63e;
+  border: 1px solid #69a7c0;
   background-color: #fff;
   transition: 0.4s ease all;
 }
@@ -19,36 +19,29 @@ input {
 input:focus {
   background-color: #c7ed95;
 }
-input:hover {
-  background-color: #dcf2bf;
-}
-input[type=submit], button {
-  background-color: #c7ed95;
-  font-weight: bold;
-  font-size: 0.8rem;
-  border-width: 3px;
-  padding: 10px 30px;
-  height: 40px;
-  box-sizing: border-box;
-}
+
 
 // NAV BAR
-nav {
+
+.cont-nav{
   height: 60px;
   width: 100%;
-  background-color: #8cc63e;
+  background-color: #5dbb8f;
   padding: 10px 20px;
   margin: 0 auto;
   box-sizing: border-box;
   position: fixed;
   top:0;
   left: 0;
-  color: #FFF;
+  color: rgb(94, 115, 155);
   font-size: 1.2rem;
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-wrap: nowrap;
   align-items: center;
+  z-index: 1;
 }
+
 nav a, footer a {
   color: #FFF;
 }
@@ -74,6 +67,23 @@ nav input[type=submit] {
   padding: 5px;
 }
 
+
+.searcherDan{
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  align-content: center;
+  width: auto;
+  justify-content: space-between;
+}
+#btn-search{
+  color: white;
+  background-color: #48555c;
+  align-content: flex-start;
+  border: 1px #2f383d ;
+  width: 80px;
+}
+
 // HEADER
 header{
   width: 100%;
@@ -82,11 +92,9 @@ header{
   background-size: cover;
 }
 
-header h2 {
+#page-name{
+  display: flex;
   text-align: center;
-  color: #fff;
-  font-size: 2rem;
-  margin: auto 0;
 }
 
 // BODY CONTAINER
@@ -98,16 +106,115 @@ section {
 
 
 // FOOTER
-footer  {
-  height: 120px;
+
+.fot-body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  height: 60px;
   width: 100%;
-  background-color: #8cc63e;
+  background-color: #5dbb8f;
   padding: 10px 40px;
   margin: 0 auto;
   box-sizing: border-box;
   color: #FFF;
 }
 
+.fot-main {
+  flex: 1 0 auto;
+}
+.page-footer{
+  background-color: #4a9773;
+}
+
+//CITY
+
+.city-title{
+  background-color: #9ab1c0a9;
+  position: absolute;
+  padding: 20px;
+  color:white;
+  font-weight: bold;
+  cursor:pointer;
+  font-size: 0.8rem;
+  border-radius: 10px;
+  font-family: "Lucida Grande";
+  font-size: .7em;
+  transition: all .3s ease;
+  outline: none;
+  border: none;
+  padding: 10px 30px;
+  height: 50px;
+  width:250px;
+  
+}
+
+.button.hover{
+  opacity: 3;
+}
+
+
+.nav-btn{
+  border:solid #48555c;
+  position: relative;
+  border: none;
+  border-radius: 20px;
+  height: 30px;
+  cursor: pointer;
+  font-family: Avenir;
+  font-size: 1 em;
+  transition: all .3s ease;
+  outline: none;
+  z-index: -1;
+}
+
+.nav-btn.hover{
+  opacity: 7;
+  z-index: -1
+}
+#map{
+  width:50%;
+  height:700px;
+  z-index: -1;
+}
+
+.cover{
+  margin:10px;;
+  padding: none;
+  width: 100vw;
+  height: 88vh;
+}
+.cov-all {
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  color:rgb(83, 80, 80);
+  font-family: Avenir;
+  font-size: 1.5em;
+  }
+.imgs-cities{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  height: 400px;
+  margin:50px;
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+}
+
+.imgs-cities button:hover{
+  opacity: .5;
+}
+
+
+h3{
+  font-family: Avenir;
+  font-size: 1.5em;
+  color:rgb(57, 83, 100);
+}
 
 // PLACE
 .place-nav{
@@ -149,6 +256,10 @@ footer  {
 .place-column-50, .place-container .map {
   width: 50%;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> Dany
 
 // ADMIN
 .admin {
@@ -264,35 +375,34 @@ footer  {
 .loginBtn--facebook:focus {
   background-color: #5B7BD5;
   background-image: linear-gradient(#5B7BD5, #4864B1);
+<<<<<<< HEAD
 }
 
 #container-city{
-  display:flex;
-  align-items: center;
-  flex-wrap: nowrap;
-  justify-content: space-around;
-  background-color: #c0d0d8;
-  height: 100px;
-  width: 100vw;
+=======
+  padding: 0px;
+  margin-top: 0px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-.cover{
-  margin:10px;;
-  padding: none;
-  width: 100vw;
-  height: 88vh;
+html{
+  margin : 0;
+  padding:0;
 }
-.cov-all{
+a {
+  text-decoration: none;
+}
+
+
+//DETAIL
+.cont-detail{
+>>>>>>> Dany
   display:flex;
   flex-direction: row;
-  justify-content: center;;
-  color:rgb(83, 80, 80);
-  font-family: Avenir;
-  font-size: 1.5em;
-
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
 }
 
-h3{
-  font-family: Avenir;
-  font-size: 1.5em;
-  color:rgb(57, 83, 100);
+.id-card{
+  color:rgb(58, 86, 102);
 }

@@ -86,8 +86,12 @@ const auth = require('./routes/auth');
 const admin = require('./routes/admin');
 const cities = require('./routes/cities');
 app.use('/', cities);
+<<<<<<< HEAD
 app.use('/admin', isLogged//, isLoggedIn, isAdmin
   , admin);
+=======
+app.use('/admin',  isLogged, isLoggedIn, isAdmin, admin);
+>>>>>>> Dany
 app.use('/', isLogged, auth);
 app.use('/', isLogged, index);
 

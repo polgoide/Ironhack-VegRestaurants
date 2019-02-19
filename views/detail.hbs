@@ -1,2 +1,48 @@
-<h2>Detail</h2>
 
+<h2>{{cityname}}</h2>
+{{city.photoURL}}
+
+<section class="cont-detail">
+<div id="map">
+</div>
+<script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+<script>
+    mapboxgl.accessToken = "pk.eyJ1IjoiZGFuaWVsYXpyIiwiYSI6ImNqczF4a29xMjF5c3E0M28zdjdmbGtuOGYifQ.qi5aM2jCWVOdO6quS6IqFQ";
+const map = new mapboxgl.Map({
+container: "map",
+style: "mapbox://styles/mapbox/streets-v11",
+zoom: 12,
+center:[{{address.coordinates}}]
+})
+
+map.addControl(new mapboxgl.NavigationControl());
+
+const marker = new mapboxgl.Marker({
+    color:'green'
+})
+.setLngLat([{{address.coordinates}}])
+.addTo(map)
+</script>
+
+
+<div class="id-card">
+  <div class="row">
+    <div class="col s12 m7">
+      <div class="card">
+        <div class="card-image">
+          <img src="//public/images/img-2.jpg">
+          <i class="card-title">Card Title</i>
+        </div>
+        <div class="card-content">
+          <p>I am a very simple card. I am good at containing small bits of information.
+          I am convenient because I require little markup to use effectively.</p>
+        </div>
+        <div class="card-action">
+          <a href="#">To website</a>
+        </div>
+      </div>
+    </div>
+  </div>
+<button><a href="cities/detail">Go back</a></button>
+</div>
+</section>

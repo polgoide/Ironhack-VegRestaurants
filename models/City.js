@@ -32,6 +32,11 @@ let citySchema = new Schema({
 }, {
   timestamps: true,
 })
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> Dany
 
 
 module.exports = mongoose.model('City', citySchema)
