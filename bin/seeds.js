@@ -22,41 +22,41 @@ const cities =  [
   cityname: 'Oaxaca',
   photoURL: 'http://s1.1zoom.me/b5050/402/Mexico_Temples_Church_Cactuses_Santo_Domingo_552796_2880x1800.jpg',
   address: {
-    coordinates: [-96.7707,17.0812],
+    coordinates: [-96.72365,17.06542],
   },
 },
 {
   cityname: 'Santiago',
-  photoURL: 'https://www.tripsavvy.com/thmb/FWCAqGGqWegbKD5n_gIYjL3FSEU=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/guadalajara-543937071-592ad53e3df78cbe7eb320dc.jpg',
+  photoURL: 'https://i3.visitchile.com/img/GalleryContent/2979/11173-san-pedro-de-atacama-valparaiso-santiago.jpg',
   address: {
     coordinates: [-70.7699,-33.4727],
   },
 },
 {
   cityname: 'Buenos Aires',
-  photoURL: 'https://www.tripsavvy.com/thmb/FWCAqGGqWegbKD5n_gIYjL3FSEU=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/guadalajara-543937071-592ad53e3df78cbe7eb320dc.jpg',
+  photoURL: 'https://www.eltiempo.com/Multimedia/galeria_fotos/internacional14/IMAGEN/IMAGEN-13863260-2.png',
   address: {
-    coordinates: [-96.7707,17.0812],
+    coordinates: [-34.61315, -58.37723],
   },
 },{
   cityname: 'London',
   photoURL:'https://d2z6c3c3r6k4bx.cloudfront.net/uploads/event/logo/1053664/3d32524b03040a6202008072a8f24b6a.jpg',
   address: {
-    coordinates: [-96.7707,17.0812],
+    coordinates: [51.508530,-0.076132],
   },
 },
 {
   cityname: 'Portland',
   photoURL:'https://media2.trover.com/T/549615ee26c48d277d000f54/fixedw_large_4x.jpg',
   address: {
-    coordinates: [-96.7707,17.0812],
+    coordinates: [45.512794, -122.679565],
   },
 },
 {
   cityname: 'New York',
   photoURL:'http://www.graylinewest.com/wp-content/uploads/2016/10/Central-Park.jpg',
   address: {
-    coordinates: [-96.7707,17.0812],
+    coordinates: [40.730610,-73.935242],
   },
 },
 {

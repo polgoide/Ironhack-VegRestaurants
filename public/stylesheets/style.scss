@@ -19,24 +19,14 @@ input {
 input:focus {
   background-color: #c7ed95;
 }
-input:hover {
-  background-color: #dcf2bf;
-}
-input[type=submit], button {
-  background-color: #c7ed95;
-  font-weight: bold;
-  font-size: 0.8rem;
-  border-width: 3px;
-  padding: 10px 30px;
-  height: 40px;
-  box-sizing: border-box;
-}
+
 
 // NAV BAR
-nav {
+
+.cont-nav{
   height: 60px;
   width: 100%;
-  background-color: #46a0c3;
+  background-color: #5dbb8f;
   padding: 10px 20px;
   margin: 0 auto;
   box-sizing: border-box;
@@ -46,9 +36,12 @@ nav {
   color: rgb(94, 115, 155);
   font-size: 1.2rem;
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-wrap: nowrap;
   align-items: center;
+  z-index: 1;
 }
+
 nav a, footer a {
   color: #FFF;
 }
@@ -73,16 +66,22 @@ nav input[type=submit] {
 .menu a {
   padding: 5px;
 }
-.search{
-  color: white;
-  display:flex;
-  justify-content: flex-end;
-  align-content: center;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  width:70%;
-  height:20px;
 
+
+.searcherDan{
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  align-content: center;
+  width: auto;
+  justify-content: space-between;
+}
+#btn-search{
+  color: white;
+  background-color: #48555c;
+  align-content: flex-start;
+  border: 1px #2f383d ;
+  width: 80px;
 }
 
 // HEADER
@@ -93,12 +92,6 @@ header{
   background-size: cover;
 }
 
-header h2 {
-  text-align: center;
-  color: #fff;
-  font-size: 2rem;
-  margin: auto 0;
-}
 #page-name{
   display: flex;
   text-align: center;
@@ -118,28 +111,49 @@ section {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-}
-
-.fot-main {
-  flex: 1 0 auto;
-}
-footer  {
-  height: 120px;
+  height: 60px;
   width: 100%;
-  background-color: #afdb8b;
+  background-color: #5dbb8f;
   padding: 10px 40px;
   margin: 0 auto;
   box-sizing: border-box;
   color: #FFF;
 }
+
+.fot-main {
+  flex: 1 0 auto;
+}
+.page-footer{
+  background-color: #4a9773;
+}
+
 //CITY
 
 .city-title{
-  display:flex;
-  align-items: center;
-  text-align: center;
-  justify-content: center; 
+  background-color: #9ab1c0a9;
+  position: absolute;
+  padding: 20px;
+  color:white;
+  font-weight: bold;
+  cursor:pointer;
+  font-size: 0.8rem;
+  border-radius: 10px;
+  font-family: "Lucida Grande";
+  font-size: .7em;
+  transition: all .3s ease;
+  outline: none;
+  border: none;
+  padding: 10px 30px;
+  height: 50px;
+  width:250px;
+  
 }
+
+.button.hover{
+  opacity: 3;
+}
+
+
 .nav-btn{
   border:solid #48555c;
   position: relative;
@@ -151,14 +165,17 @@ footer  {
   font-size: 1 em;
   transition: all .3s ease;
   outline: none;
+  z-index: -1;
 }
 
 .nav-btn.hover{
   opacity: 7;
+  z-index: -1
 }
 #map{
   width:50%;
   height:700px;
+  z-index: -1;
 }
 
 .cover{
@@ -167,7 +184,7 @@ footer  {
   width: 100vw;
   height: 88vh;
 }
-.cov-all{
+.cov-all {
   display:flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -175,12 +192,23 @@ footer  {
   color:rgb(83, 80, 80);
   font-family: Avenir;
   font-size: 1.5em;
+  }
+.imgs-cities{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  height: 400px;
+  margin:50px;
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
 }
-#imgs-cities{
-  width: 500px;
-  height: 300px;
-  margin:60px;
+
+.imgs-cities button:hover{
+  opacity: .5;
 }
+
 
 h3{
   font-family: Avenir;
@@ -326,3 +354,16 @@ a {
   text-decoration: none;
 }
 
+
+//DETAIL
+.cont-detail{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.id-card{
+  color:rgb(58, 86, 102);
+}

@@ -1,33 +1,19 @@
-
 <div>
 <img class="cover"
     src="https://i2.cdn.turner.com/money/dam/assets/141001144835-innovative-cities-philly-1024x576.jpg" 
     alt="{{cityname}}">
 </div>
-
-<div class="cov-all">
 <h3>Pick one city</h3>
+<div class="cov-all">
+
 {{#each cities as |city|}}
-<a href="/cities/detail/{{city._id}}">
-    <h3 class="city-title">{{city.cityname}}</h3>
-    <img id="imgs-cities" src="{{city.photoURL}}" alt="{{city.cityname}}">
+  <a href="/cities/detail/{{city._id}}">
+    <div class="imgs-cities" style="background-image: url({{city.photoURL}})">
+      <button class="city-title">{{city.cityname}}</button>
+    </div>
+    
+    {{!-- <img class="imgs-cities" src="{{city.photoURL}}" alt="{{city.cityname}}"> --}}
 </a>
 {{/each}}
 </div>
 
-
-<script>
-    mapboxgl.accessToken = "pk.eyJ1IjoiZGFuaWVsYXpyIiwiYSI6ImNqczF4a29xMjF5c3E0M28zdjdmbGtuOGYifQ.qi5aM2jCWVOdO6quS6IqFQ";
-const map = new mapboxgl.Map({
-container: "map",
-style: "mapbox://styles/mapbox/streets-v11",
-zoom: 12,
-center:[{{address.coordinates}}]
-})
-
-const marker = new mapboxgl.Marker({
-    color:'green'
-})
-.setLngLat([{{address.coordinates}}])
-.addTo(map)
-</script>
