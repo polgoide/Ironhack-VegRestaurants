@@ -79,6 +79,11 @@ function isLogged(req, res, next) {
   }
 }
 
+//HBS helper
+hbs.registerHelper('get_length', function (obj) {
+  return obj.length;
+ });    
+
 const index = require('./routes/index');
 const auth = require('./routes/auth');
 const admin = require('./routes/admin');

@@ -1,4 +1,4 @@
-<header style="background-image: url('{{place.pictures.[3]}}')">
+<header style="background-image: url('{{place.pictures.[0]}}')">
   <h2>{{place.name}}</h2>
   <p>{{place.description}}</p>
   <i class="fa fa-heart" id="like"></i>
@@ -9,9 +9,9 @@
 </header>
 <div class="place-nav card-panel green lighten-3">
 <div><a href="#opiniones"><i class="fa fa-star"></i> <span class="place-nav-menu">{{place.rating}}/10</span></a></div>
+<div><a href="#fotos"><i class="fa fa-picture-o" aria-hidden="true"></i> <span class="place-nav-menu">Fotos</span></a></div>
 <div><a href="#menu"><i class="fa fa-cutlery"></i> <span class="place-nav-menu">Menu</span></a></div>
 <div><a href="#contacto"><i class="fa fa-map-marker"></i> <span class="place-nav-menu">Direccion</span></a></div>
-<div><a href="#compartir"><i class="fa fa-share-alt"></i> <span class="place-nav-menu">Compartir</span></a></div>
 </div>
 <article class="place-container">
 <h3>Menu de {{place.name}}</h3>
@@ -72,15 +72,14 @@
 </div>
 <h3>Contactar con {{place.name}}</h3>
 <div class="card-panel orange lighten-4" id="contacto">
-  <div id="place-column-50">
+  <div id="map"></div>
+    <div class="place-column-50">
     <ul>
-      <li>Direccion: {{place.address.location}}</li>
-      <li>{{place.address.coordinates.lng}}, {{place.address.coordinates.lat}}</li>
-      <li>Abierto: {{place.openTimes}}</li>
-      {{#if place.phoneNumber}}<li>Telefono: <a href="tel:{{place.phoneNumber}}">{{place.phoneNumber}}</a></li>{{/if}}
+      <li><i class="fa fa-map-marker" aria-hidden="true"></i> {{place.address.location}}</li>
+      <li><i class="fa fa-clock-o" aria-hidden="true"></i> {{place.openTimes}}</li>
+      {{#if place.phoneNumber}}<li><i class="fa fa-phone" aria-hidden="true"></i> <a href="tel:{{place.phoneNumber}}">{{place.phoneNumber}}</a></li>{{/if}}
     </ul>
 </div>
-  <div id="map"></div>
 </div>
       <h3>{{place.name}} en  las redes</h3>
 <div class="card-panel orange lighten-4" id="social">
@@ -107,7 +106,7 @@ const map = new mapboxgl.Map({
 container: "map", 
 style: "mapbox://styles/mapbox/streets-v11",
 center: ["{{place.address.coordinates.lng}}", "{{place.address.coordinates.lat}}"],
-zoom: 10,
+zoom: 13,
 })
 const marker = new mapboxgl.Marker({
   color: 'red',

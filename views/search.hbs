@@ -1,23 +1,17 @@
-<header class="cover-home">
-  <h2>{{title}}</h2>
-  <p>{{place.description}}</p>
-</header>
 <div class="container">
 
-<h3>Top Ciudades</h3>
+<h3>Resultados de busqueda:</h3>
 <div class="list-container">
+{{#if cities}}
 {{#each cities}}
-<a href="/ciudad/{{this.id}}">
+<a href="/ciudad/{{this._id}}">
 <div class="card" style="background-image: url('{{this.photoURL}}')">
   {{this.cityname}}
 </div>
 </a>
 {{/each}}
-<p class="place-more-restaurants"><a href="/cities" class="waves-effect waves-light btn">Ver mas ciudades</a></p>
-</div>
-
-<h3>Top Restaurantes</h3>
-<div class="list-container">
+{{/if}}
+{{#if places}}
 {{#each places}}
 <a href="/{{this.slug}}/{{this.id}}">
 <div class="card" style="background-image: url('{{this.pictures.[0]}}')">
@@ -26,4 +20,6 @@
 </a>
 {{/each}}
 </div>
+{{/if}}
+
 </div>
