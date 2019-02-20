@@ -1,38 +1,45 @@
-
-<h2>{{cityname}}</h2>
-<img src="{{city.photoURL}}" alt="{{cityname}}">
-
-<section class="cont-detail">
-<div id="map">
+<header style="background-image: url('{{city.photoURL}}')">
+  <h2>{{city.cityname}}</h2>
+  <p>Los mejores restaurantes veganos de {{city.cityname}}</p>
+</header>
+<div class="container">
+<div class="card-panel orange lighten-4" id="contacto">
+  <div id="map"></div>
+    <div class="place-column-50">
+    <h4></h4>
+    <p>{{city.info}}</p>
+    <p>Descubre los {{get_length places}} mejores restaurantes veganos con buena calidad precio de {{city.cityname}}</p>
+ </div>   
 </div>
-{{#if places}}
-<h3>Los  mejores restaurantes veganos de {{cityname}}</h3>
+<div class="list-container">
 {{#each places}}
-  <a href="/{{this.slug}}/{{this._id}}">
-    <div class="imgs-cities" style="background-image: url({{this.pictures.[0]}})">
-      <button class="city-title">{{this.name}}</button>
-    </div>
+<a href="/{{this.slug}}/{{this.id}}">
+<div class="card" style="background-image: url('{{this.pictures.[0]}}')">
+{{this.name}}
+</div>
 </a>
 {{/each}}
-{{/if}}
-
+</div>
+</div>
 <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
 <script>
 mapboxgl.accessToken = "pk.eyJ1IjoiZGFuaWVsYXpyIiwiYSI6ImNqczF4a29xMjF5c3E0M28zdjdmbGtuOGYifQ.qi5aM2jCWVOdO6quS6IqFQ";
 const map = new mapboxgl.Map({
 container: "map",
 style: "mapbox://styles/mapbox/streets-v11",
-zoom: 12,
+zoom: 11,
 center:[{{city.address.coordinates}}]
 })
 
 map.addControl(new mapboxgl.NavigationControl());
-
-const marker = new mapboxgl.Marker({
+</script>
+<script>
+  let arr = []
+{{#each places}}
+  arr.push(new mapboxgl.Marker({
     color:'green'
 })
-.setLngLat([{{city.address.coordinates}}])
-.addTo(map)
+.setLngLat(["{{this.address.coordinates.lng}}", "{{this.address.coordinates.lat}}"])
+.addTo(map))
+{{/each}}
 </script>
-
-</section>

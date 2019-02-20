@@ -57,12 +57,16 @@ router.post('/signup', (req,res,next) => {
     res.render('auth/signup', {...req.body, errors:{password: "Los passwords no coinciden"}})
     return
   }
-  User.register(req.body, req.body.password)
-    .then(user => {
-      sendWelcomeMail(user.username, user.email)
-      res.redirect('/login')
-    })
-    .catch(e=> next(e))
+  User.findOne({ email: req.body.email })
+    .then(r => {
+      if(r) return res.render('auth/signup', {...req.body, errors:{email: "Ya existe un usuario con ese email."}})
+      User.register(req.body, req.body.password)
+      .then(user => {
+        sendWelcomeMail(user.username, user.email)
+        res.redirect('/login')
+      })
+      .catch(e=> next(e))
+    }) 
 })
 
 router.get('/signup', (req,res,next) => {

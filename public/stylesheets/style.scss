@@ -33,7 +33,7 @@ input[type="file"] {
   padding: 0 0 0 20px;
 }
 nav .brand-logo {
-  font-size: 1.6rem;
+  font-size: 2rem;
 }
 
 nav a, footer a {
@@ -67,21 +67,32 @@ nav input[type=text]:focus {
   border: 1px #2f383d ;
   width: 80px;
 }
+.btn-large {
+  text-transform: none;
+  font-size: 1rem;
+  padding: 10px;
+  line-height: 2rem;
+}
+.btn{
+  font-size: 1rem;
+}
 
 // HEADER
 header{
   width: 100%;
   height: 300px;
   background-size: cover;
-  opacity: 0.6;
+  background-position: center;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
   text-align: center;
+  color: #fff;
 }
 header h2 {
   opacity: 1;
+  text-shadow: 1px 1px 10px rgba(0, 79, 82, 1);
 }
 header > * {
   width: 100%;
@@ -102,6 +113,11 @@ line-height: 1;
 #page-name{
   display: flex;
   text-align: center;
+}
+.fabutton {
+  background: none;
+  padding: 0px;
+  border: none;
 }
 
 // BODY CONTAINER
@@ -175,9 +191,13 @@ line-height: 1;
   z-index: -1
 }
 #map{
-  width:50%;
-  height:500px;
-  z-index: -1;
+  width:45%;
+  height:300px;
+  z-index: 1;
+}
+
+#contacto {
+  display: flex;
 }
 
 .cover{
@@ -199,9 +219,9 @@ line-height: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 600px;
-  height: 400px;
-  margin:50px;
+  width: 570px;
+  height: 300px;
+  margin:30px;
   background-position: center; 
   background-repeat: no-repeat; 
   background-size: cover;
@@ -229,8 +249,10 @@ h3{
   justify-content: center;
 }
 .card-panel {
+  line-height: 2rem;
   margin: 0;
   padding: 12px;
+  font-size: 1.1rem;
 }
 .place-nav div{
   width: 25%;
@@ -258,8 +280,9 @@ h3{
   margin: 20px 0px;
   background-color: #FFCF75;
 }
-.place-column-50, .place-container .map {
+.place-column-50 {
   width: 50%;
+  padding: 0 20px;
 }
 
 .place-new-comment{
@@ -287,6 +310,25 @@ margin: 20px;
   flex-wrap: wrap;
   justify-content: space-around;
 }
+.place-more-restaurants{
+text-align: center;
+}
+
+//HOME
+.cover-home{
+  background-image: url('../images/receta-de-ensalada-de-lentejas-vegetariana.jpg');
+  width: 100%;
+  height: 300px;
+  background-size: cover;
+  opacity: 0.6;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
+
+
 // ADMIN
 .admin {
   width: 80%;
@@ -334,6 +376,7 @@ margin: 20px;
   display:flex;
   align-items: flex-start;
   justify-content: center; 
+  font-size:1em;
 }
 .nav-btn{
   border:solid #48555c;
@@ -360,35 +403,10 @@ a {
 }
 
 
-//DETAIL
-.cont-detail{
-  display:flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: nowrap;
-  margin:50px;
-  width:100vw;
-}
+//SIGNUP
 
-.id-card{
-  display:flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: nowrap;
-  margin:100px;
-}
-.card-ttl{
-  color:black;
-  font-size: 1.5em;
-}
-
-//LOGIN
-
-
-.log-sign{
-  background-image: url('https://i.dietdoctor.com/es/wp-content/uploads/2017/12/DD_90_KF_swide2.jpg?auto=compress%2Cformat&w=1600&h=617&fit=crop');
+.sign-log{
+  background-image: url('../images/shutterstock_270584885.jpg');
   background-size: 100vw 100vh;
   background-position: 0;
   background-repeat: no-repeat;
@@ -398,12 +416,30 @@ a {
   justify-content: center;
   flex-wrap: nowrap;
   flex-direction: row;
-  margin: 0 80px 0 80;
+  // margin: 0 80px 0 80;
+  // padding: 80px;
+}
+
+//LOGIN
+
+
+.log-sign{
+  background-image: url('../images/54281752-comida-vegetariana-sándwich-vegetariano.jpg');
+  background-size: 100vw 100vh;
+  background-position: 0;
+  background-repeat: no-repeat;
+  opacity:0.75;
+  display:flex;
+  align-items:center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  // margin: 0 80px 0 80;
   // padding: 80px;
 }
 .form-log{
   justify-content: space-around;
-  margin: 100px;
+  margin: 25px;
   padding:70px;
   border-radius: 40px;
   background-color: rgba(178, 193, 194, 0.85);
@@ -424,61 +460,28 @@ a {
   opacity: .8;
 }
 
-.loginBtn {
-  box-sizing: border-box;
-  position: relative;
-  margin: 80px;
-  padding: 0 15px 0 46px;
-  border: none;
-  text-align: center;
-  line-height: 34px;
-  white-space: nowrap;
-  border-radius: 0.2em;
-  font-size: 16px;
-  color: white;
-}
-.loginBtn:before {
-  content: "";
-  box-sizing: border-box;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 34px;
-  height: 100%;
-}
-.loginBtn:focus {
-  outline: none;
-}
-.loginBtn:active {
-  box-shadow: inset 0 0 0 32px rgba(255, 255, 255, 0.1);
-}
-
-.loginBtn--facebook {
-  color:white;
-  background-color: #4C69BA;
-  background-image: linear-gradient(#4C69BA, #3B55A0);
-  text-shadow: 0 -1px 0 #354C8C;
-}
-.loginBtn--facebook:before {
-  border-right: #364e92 1px solid;
-  background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/14082/icon_facebook.png') 6px 6px no-repeat;
-}
-.loginBtn--facebook:hover,
-.loginBtn--facebook:focus {
-  background-color: #5B7BD5;
-  background-image: linear-gradient(#5B7BD5, #4864B1);
-  padding: 0px;
-  margin-top: 0px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
 //DETAIL
+#cover-detail{
+  background-image: src("{{city.photoURL}}");
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cover-img-det{
+  display:flex;
+  justify-content: center;
+  align-content: center;
+  background-size: cover;
+  width: 100%;
+  height: 300px;
+
+}
 .cont-detail{
   display:flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
 }
 
 .id-card{
@@ -489,21 +492,64 @@ a {
   width: 80%;
   margin: 0 auto;
 }
+.list-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.list-container div{
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  font-size: 2rem;
+  color: #fff;
+  line-height: 200px;
+  text-align: center;
+}
+
+.list-container a{
+  width: 45%;
+  text-shadow: 1px 1px 10px rgba(0, 79, 82, 1);
+  margin: 10px;
+  box-sizing: border-box;
+}
+.list-container a:hover{
+  opacity: 0.8;
+}
 
 #fotos {
   display: flex;
   flex-wrap: wrap;
   align-content: space-around;
-  justify-content: center;
+}
+#fotos img{
+  width: 100%;
+  max-height: 50%;
+  padding: 5px;
 }
 .material-placeholder{
   width: 45%;
 }
 
-#fotos img{
-  width: 100%;
-  padding: 5px;
+.city-title-det{
+  top: 150px;
+  background-color: #6d7e8aa9;
+  position: absolute;
+  padding: 20px;
+  color:white;
+  font-weight: bold;
+  cursor:pointer;
+  font-size: 0.8rem;
+  font-family: "Lucida Grande";
+  font-size: 2em;
+  transition: all .3s ease;
+  outline: none;
+  border: none;
+  padding: 10px 30px;
+  height: 150px;
+  width:450px;
 }
+
+
 
 
 // MOBILE SCREEN SIZE
@@ -517,10 +563,26 @@ a {
 .material-placeholder{
   width: 100%;
 }
+.list-container a{
+  width: 100%;
+}
+#contacto {
+  display: inline-block;
+}
+.place-column-50 {
+  width: 100%;
+  padding: 10px;
+}
+#map {
+  width: 100%;
+}
+nav .brand-logo {
+  font-size: 1.6rem;
+}
 }
 
 h5{
-  color:rgb(71, 71, 71);
+  color:rgb(34, 20, 20);
   background: none;
   width: 20%;
   height: 80px;

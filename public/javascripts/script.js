@@ -5,18 +5,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   var pics = document.querySelectorAll('.materialboxed');
   var picInstances = M.Materialbox.init(pics);
-  console.log('IronGenerator JS imported successfully!');
 
   var navbar = document.querySelectorAll('.sidenav');
   var navbarInstances = M.Sidenav.init(navbar);
 
 }, false);
 
-  // Place pages
+// Place pages
 
-let likeBtn = document.getElementById('like')
+// let likeBtn = document.getElementById('like')
   
-likeBtn.addEventListener('click', () => {
-  console.log('hola')
+// likeBtn.addEventListener('click', () => {
+//   console.log('hola')
   
-})
+// })

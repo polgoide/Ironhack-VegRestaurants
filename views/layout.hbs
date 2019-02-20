@@ -11,6 +11,7 @@
     href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v3.1.0/mapbox-gl-geocoder.css'
     type='text/css' />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Neucha" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="/stylesheets/style.css" />
@@ -28,8 +29,10 @@
               <div class="col s12">
                 <div class="row">
                   <div class="input-field col s6 s12">
+                    <form action="/search" method="POST">
                     <i class="material-icons prefix text-white">search</i>
-                    <input class="text-white" type="text" placeholder="Buscar">
+                    <input class="text-white" type="text" name="query" placeholder="Buscar">
+                    </form>
                   </div>
                 </div>
               </div>
@@ -87,10 +90,8 @@
       © 2019 Copyright Text
     </div>
   </footer>
-  {{!-- <footer>Esto es el footer</footer> --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="/javascripts/script.js"></script>
-  {{#if showMaterialize}}
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>{{/if}}
 </body>
 
 </html>
