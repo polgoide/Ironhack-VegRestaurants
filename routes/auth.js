@@ -33,7 +33,7 @@ router.get('/logout', (req, res) => {
 // FB login
 router.get('/auth/callback/facebook', passport.authenticate('facebook', { failureRedirect: '/login' }),
   (req, res, next) => {
-    console.log('🎱', req.app.locals.fbLogin)
+    console.log('🎱', req)
     res.redirect('/cities')
   })
 router.get('/facebook/login', passport.authenticate('facebook', { scope: ['email'] }), (req, res, next) => {
