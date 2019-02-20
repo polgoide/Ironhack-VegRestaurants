@@ -6,7 +6,7 @@ let FacebookStrategy = require('passport-facebook')
 passport.use(new FacebookStrategy({
   clientID: process.env.FACEBOOK_APP_ID,
   clientSecret: process.env.FACEBOOK_APP_SECRET,
-  callbackURL: "https://comervegano.com/auth/callback/facebook", // to change for dotenv
+  callbackURL: process.env.FACEBOOK_CALLBACK, // to change for dotenv
   profileFields: ["email", "picture", "displayName"]
 },
   function (accessToken, refreshToken, profile, cb) {
