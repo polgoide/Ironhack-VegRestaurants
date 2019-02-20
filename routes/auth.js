@@ -33,9 +33,9 @@ router.get('/logout', (req, res) => {
 // FB login
 router.get('/auth/callback/facebook', passport.authenticate('facebook', { failureRedirect: '/login' }),
 (req, res, next) => res.redirect(req.app.locals.fbLogin))
-router.get('/facebook/login', passport.authenticate('facebook', { scope: ['email'] }, (req, res, next) => {
+router.get('/facebook/login', passport.authenticate('facebook', { scope: ['email'] }), (req, res, next) => {
   req.app.locals.fbLogin  = req.path
-})) // Scope to get additional fields
+}) // Scope to get additional fields
 
 // Local login
 router.post('/login', passport.authenticate('local'), (req, res, next) => {
