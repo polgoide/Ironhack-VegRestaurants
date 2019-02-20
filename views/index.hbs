@@ -2,16 +2,35 @@
 
 </div>
 
+<header style="background-image: url('{{place.pictures.[1]}}')">
+  <h2>{{title}}</h2>
+  <p>{{place.description}}</p>
+  <div id="search">
+<input type="text">
+    </div>
+</header>
 <div class="container">
-<h1>{{title}}</h1>
 
-<h3>Ciudades</h3>
+<h3>Top Ciudades</h3>
+<div class="list-container">
 {{#each cities}}
-<p><a href="/ciudad/{{this.id}}">{{this.cityname}}</a></p>
+<a href="/ciudad/{{this.id}}">
+<div class="card" style="background-image: url('{{this.photoURL}}')">
+  {{this.cityname}}
+</div>
+</a>
 {{/each}}
+<p class="place-more-restaurants"><a href="/cities" class="waves-effect waves-light btn">Ver mas ciudades</a></p>
+</div>
 
-<h3>Restaurantes</h3>
+<h3>Top Restaurantes</h3>
+<div class="list-container">
 {{#each places}}
-<p><a href="/{{this.slug}}/{{this.id}}">{{this.name}}</a></p>
+<a href="/{{this.slug}}/{{this.id}}">
+<div class="card" style="background-image: url('{{this.pictures.[0]}}')">
+{{this.name}}
+</div>
+</a>
 {{/each}}
+</div>
 </div>

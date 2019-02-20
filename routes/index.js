@@ -16,7 +16,6 @@ router.get('/cities', (req,res,next)=> {
 
 
 router.get('/ciudad/:id', (req, res, next) => {
-  console.log('holita')
   const { id } = req.params
   Promise.all([
     City.findById(id),
@@ -45,10 +44,11 @@ router.post('/:slug/:id',
 router.get('/:slug/:id', (req, res, next) => {
   const { id } = req.params
   Promise.all([
-    Place.findById(id),
+    Place.findById(id).populate('cityId'),
     Comment.find({ place: id }).limit(10).populate('authorId')
   ])
     .then(results => {
+      console.log(results[0])
       res.render('places/detail', {place: results[0], comments: results[1]})
     })
   .catch(e=> next(e))
@@ -66,8 +66,8 @@ router.get('/privacidad', (req, res, next) => {
 /* GET home page */
 router.get('/', (req, res, next) => {
   Promise.all([
-    Place.find({ active: true }),
-    City.find({ active: true }),
+    Place.find({ active: true }).limit(6),
+    City.find({ active: true }).limit(8),
   ])
     .then(results => {
       res.render('index', { places: results[0], cities: results[1] });

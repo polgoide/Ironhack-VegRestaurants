@@ -56,6 +56,8 @@ router.post('/signup', (req,res,next) => {
     res.render('auth/signup', {...req.body, errors:{password: "Los passwords no coinciden"}})
     return
   }
+  User.find({ email: req.body.email })
+  .then(() => res.render('auth/signup', {...req.body, errors:{email: "Ya existe un usuario con ese email."}}))
   User.register(req.body, req.body.password)
     .then(user => {
       sendWelcomeMail(user.username, user.email)

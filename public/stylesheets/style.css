@@ -57,19 +57,30 @@ nav input[type=text]:focus {
   border: 1px #2f383d;
   width: 80px; }
 
+.btn-large {
+  text-transform: none;
+  font-size: 1rem;
+  padding: 10px;
+  line-height: 2rem; }
+
+.btn {
+  font-size: 1rem; }
+
 header {
   width: 100%;
   height: 300px;
   background-size: cover;
-  opacity: 0.6;
+  background-position: center;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
-  text-align: center; }
+  text-align: center;
+  color: #fff; }
 
 header h2 {
-  opacity: 1; }
+  opacity: 1;
+  text-shadow: 1px 1px 10px #004f52; }
 
 header > * {
   width: 100%; }
@@ -90,6 +101,11 @@ header > * {
 #page-name {
   display: flex;
   text-align: center; }
+
+.fabutton {
+  background: none;
+  padding: 0px;
+  border: none; }
 
 .fot-body {
   display: flex;
@@ -196,7 +212,8 @@ h3 {
 
 .card-panel {
   margin: 0;
-  padding: 12px; }
+  padding: 12px;
+  font-size: 1rem; }
 
 .place-nav div {
   width: 25%;
@@ -260,6 +277,8 @@ h3 {
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
+}
+.place-more-restaurants {
   text-align: center; }
 
 .admin {
@@ -443,6 +462,28 @@ a {
   width: 80%;
   margin: 0 auto; }
 
+.list-container {
+  display: flex;
+  flex-wrap: wrap; }
+
+.list-container div {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  font-size: 2rem;
+  color: #fff;
+  line-height: 200px;
+  text-align: center; }
+
+.list-container a {
+  width: 45%;
+  text-shadow: 1px 1px 10px #004f52;
+  margin: 10px;
+  box-sizing: border-box; }
+
+.list-container a:hover {
+  opacity: 0.8; }
+
 #fotos {
   display: flex;
   flex-wrap: wrap;
@@ -480,6 +521,8 @@ a {
   .place-nav i {
     font-size: 2rem; }
   .material-placeholder {
+    width: 100%; }
+  .list-container a {
     width: 100%; } }
 
 h5 {

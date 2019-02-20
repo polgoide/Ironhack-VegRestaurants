@@ -16,9 +16,10 @@
 <article class="place-container">
 <h3>Menu de {{place.name}}</h3>
 <div class="card-panel orange lighten-4" id="menu">
+  {{place.name}} es un restaurante situado en {{place.address.location}}. Estan especializados en {{place.foodType}} y los {{place.social.likes}} veganos/vegetarianos que han ido, le han puesto una nota media de {{place.rating}}/10.
    <ul>
-      <li>{{place.foodType}}</li>
-      <li>{{place.type}}</li>
+      <li>Especialidad: {{place.foodType}}</li>
+      <li>Vegano o vegetariano? {{place.type}}</li>
       <li>Rango de precio: {{place.priceRange}}</li>
     </ul>
 </div>
@@ -50,7 +51,11 @@
    {{#each comments}}
    <div id="place-comment">
      <div class="place-comment-profile">
-      <img src="{{this.authorId.photoURL}}" alt="{{this.authorId.name}}">
+       {{#if this.authorId.photoURL}}
+       <img src="{{this.authorId.photoURL}}" alt="{{this.authorId.name}}">
+       {{else}}
+       <img src="https://secure.gravatar.com/avatar/af866a9b55ceb905c6de928aeebfc1f6?s=96&d=https%3A%2F%2Fstatic.teamtreehouse.com%2Fassets%2Fcontent%2Fdefault_avatar-ea7cf6abde4eec089a4e03cc925d0e893e428b2b6971b12405a9b118c837eaa2.png&r=pg" alt="{{this.authorId.name}}">
+       {{/if}}
      </div>
      <div class="place-comment-content">
      <p><b>{{this.authorId.name}}</b></p>
@@ -72,7 +77,7 @@
       <li>Direccion: {{place.address.location}}</li>
       <li>{{place.address.coordinates.lng}}, {{place.address.coordinates.lat}}</li>
       <li>Abierto: {{place.openTimes}}</li>
-      {{#if place.phoneNumber}}<li>Telefono: {{place.phoneNumber}}</li>{{/if}}
+      {{#if place.phoneNumber}}<li>Telefono: <a href="tel:{{place.phoneNumber}}">{{place.phoneNumber}}</a></li>{{/if}}
     </ul>
 </div>
   <div id="map"></div>
@@ -92,6 +97,7 @@
 <i class="fa fa-link"></i></a></li>{{/if}}
     </ul>
   </div>
+  <p class="place-more-restaurants"><a href="/ciudad/{{place.cityId._id}}" class="waves-effect waves-light btn">Mas de {{place.cityId.cityname}}</a></p>
 </article>
 
 <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
