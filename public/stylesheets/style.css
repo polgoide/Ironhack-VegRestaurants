@@ -302,6 +302,7 @@ h3 {
   font-size: 1 em;
   transition: all .3s ease;
   outline: none; }
+
 html {
   margin: 0;
   padding: 0; }
@@ -419,11 +420,6 @@ a {
 
 .id-card {
   color: #3a5666; }
-h5 {
-  color: #474747;
-  background: none;
-  width: 20%;
-  height: 80px; }
 
 .container {
   width: 80%;
@@ -449,5 +445,11 @@ h5 {
     font-size: 2rem; }
   .material-placeholder {
     width: 100%; } }
+
+h5 {
+  color: #474747;
+  background: none;
+  width: 20%;
+  height: 80px; }
 
 /*# sourceMappingURL=style.css.map */

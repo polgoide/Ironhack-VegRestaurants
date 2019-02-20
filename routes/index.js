@@ -10,18 +10,21 @@ const uploadCloud = require('../helpers/cloudinary')
 router.get('/cities', (req,res,next)=> {
   City.find()
   .then (cities =>{
-    res.render('cities', {cities})
+    res.render('cities/cities', {cities})
   }).catch(err=> next (e))
 })
 
 
-router.get('/ciudad/:id', (req,res,next) =>{
-  const {id} = req.params
-  City.findById(id)
-  .then(city=>{
-    res.render('detail', city)
-  }).catch(err=>{
-    res.render('error', err)})
+router.get('/ciudad/:id', (req, res, next) => {
+  console.log('holita')
+  const { id } = req.params
+  Promise.all([
+    City.findById(id),
+    Place.find({cityId: id})
+  ])
+  .then(response=>{
+    res.render('cities/detail', {city: response[0], places: response[1]})
+  }).catch(e=> console.log(e))
 })
 
 
