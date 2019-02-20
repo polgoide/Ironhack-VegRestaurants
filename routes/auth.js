@@ -31,7 +31,7 @@ router.get('/logout', (req, res) => {
 })
 
 // FB login
-router.get('/auth/callback/facebook', passport.authenticate('facebook', {
+router.get('/auth/callback/facebook', (req,res,next),passport.authenticate('facebook', {
   failureRedirect: '/login',
   successRedirect: req.app.locals.fbLogin
 }))
