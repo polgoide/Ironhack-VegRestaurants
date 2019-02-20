@@ -66,8 +66,8 @@ router.get('/privacidad', (req, res, next) => {
 /* GET home page */
 router.get('/', (req, res, next) => {
   Promise.all([
-    Place.find({ active: true }),
-    City.find({ active: true }),
+    Place.find({ active: true }).limit(6),
+    City.find({ active: true }).limit(12),
   ])
     .then(results => {
       res.render('index', { places: results[0], cities: results[1] });

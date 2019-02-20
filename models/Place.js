@@ -10,6 +10,7 @@ let placeSchema = new Schema({
       default: "Point"
     },
     coordinates: {
+      coords: [String],
       lat: String,
       lng: String,
     }

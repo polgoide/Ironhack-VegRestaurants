@@ -16,9 +16,10 @@
 <article class="place-container">
 <h3>Menu de {{place.name}}</h3>
 <div class="card-panel orange lighten-4" id="menu">
+  {{place.name}} es un restaurante situado en {{place.address.location}}. Estan especializados en {{place.foodType}} y los {{place.social.likes}} veganos/vegetarianos que han ido, le han puesto una nota media de {{place.rating}}/10.
    <ul>
-      <li>{{place.foodType}}</li>
-      <li>{{place.type}}</li>
+      <li>Especialidad: {{place.foodType}}</li>
+      <li>Vegano o vegetariano? {{place.type}}</li>
       <li>Rango de precio: {{place.priceRange}}</li>
     </ul>
 </div>
@@ -72,7 +73,7 @@
       <li>Direccion: {{place.address.location}}</li>
       <li>{{place.address.coordinates.lng}}, {{place.address.coordinates.lat}}</li>
       <li>Abierto: {{place.openTimes}}</li>
-      {{#if place.phoneNumber}}<li>Telefono: {{place.phoneNumber}}</li>{{/if}}
+      {{#if place.phoneNumber}}<li>Telefono: <a href="tel:{{place.phoneNumber}}">{{place.phoneNumber}}</a></li>{{/if}}
     </ul>
 </div>
   <div id="map"></div>
