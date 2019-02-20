@@ -67,21 +67,32 @@ nav input[type=text]:focus {
   border: 1px #2f383d ;
   width: 80px;
 }
+.btn-large {
+  text-transform: none;
+  font-size: 1rem;
+  padding: 10px;
+  line-height: 2rem;
+}
+.btn{
+  font-size: 1rem;
+}
 
 // HEADER
 header{
   width: 100%;
   height: 300px;
   background-size: cover;
-  opacity: 0.6;
+  background-position: center;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
   text-align: center;
+  color: #fff;
 }
 header h2 {
   opacity: 1;
+  text-shadow: 1px 1px 10px rgba(0, 79, 82, 1);
 }
 header > * {
   width: 100%;
@@ -102,6 +113,11 @@ line-height: 1;
 #page-name{
   display: flex;
   text-align: center;
+}
+.fabutton {
+  background: none;
+  padding: 0px;
+  border: none;
 }
 
 // BODY CONTAINER
@@ -231,6 +247,7 @@ h3{
 .card-panel {
   margin: 0;
   padding: 12px;
+  font-size: 1rem;
 }
 .place-nav div{
   width: 25%;
@@ -286,6 +303,9 @@ margin: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+}
+.place-more-restaurants{
+text-align: center;
 }
 // ADMIN
 .admin {
@@ -424,54 +444,6 @@ a {
   opacity: .8;
 }
 
-.loginBtn {
-  box-sizing: border-box;
-  position: relative;
-  margin: 80px;
-  padding: 0 15px 0 46px;
-  border: none;
-  text-align: center;
-  line-height: 34px;
-  white-space: nowrap;
-  border-radius: 0.2em;
-  font-size: 16px;
-  color: white;
-}
-.loginBtn:before {
-  content: "";
-  box-sizing: border-box;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 34px;
-  height: 100%;
-}
-.loginBtn:focus {
-  outline: none;
-}
-.loginBtn:active {
-  box-shadow: inset 0 0 0 32px rgba(255, 255, 255, 0.1);
-}
-
-.loginBtn--facebook {
-  color:white;
-  background-color: #4C69BA;
-  background-image: linear-gradient(#4C69BA, #3B55A0);
-  text-shadow: 0 -1px 0 #354C8C;
-}
-.loginBtn--facebook:before {
-  border-right: #364e92 1px solid;
-  background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/14082/icon_facebook.png') 6px 6px no-repeat;
-}
-.loginBtn--facebook:hover,
-.loginBtn--facebook:focus {
-  background-color: #5B7BD5;
-  background-image: linear-gradient(#5B7BD5, #4864B1);
-  padding: 0px;
-  margin-top: 0px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
 //DETAIL
 .cont-detail{
   display:flex;
@@ -488,6 +460,29 @@ a {
 .container {
   width: 80%;
   margin: 0 auto;
+}
+.list-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.list-container div{
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  font-size: 2rem;
+  color: #fff;
+  line-height: 200px;
+  text-align: center;
+}
+
+.list-container a{
+  width: 45%;
+  text-shadow: 1px 1px 10px rgba(0, 79, 82, 1);
+  margin: 10px;
+  box-sizing: border-box;
+}
+.list-container a:hover{
+  opacity: 0.8;
 }
 
 #fotos {
@@ -517,10 +512,12 @@ a {
 .material-placeholder{
   width: 100%;
 }
+.list-container a{
+  width: 100%;
+}
 }
 
 h5{
-  // font-size: 3em;
   color:rgb(71, 71, 71);
   background: none;
   width: 20%;

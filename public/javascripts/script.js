@@ -14,9 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Place pages
 
-let likeBtn = document.getElementById('like')
+// let likeBtn = document.getElementById('like')
   
-likeBtn.addEventListener('click', () => {
-  console.log('hola')
+// likeBtn.addEventListener('click', () => {
+//   console.log('hola')
   
-})
+// })
