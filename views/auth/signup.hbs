@@ -1,16 +1,19 @@
-<h1>Crea tu cuenta</h1>
-
-<form action="/signup" method="post">
-  <p>Email
-    <input type="email" name="email" value="{{email}}">
+<section class="log-sign">
+  <div class="form-log">
+    <h6>Crea tu cuenta</h6>
+    <form action="/signup" method="post">
+    <p><button type="email" name="email" style="border:none; background: none"><i class="small material-icons">email</i></button>
+    Email <input type="email" name="email" value="{{email}}">
     <p style="color:red">{{errors.email}}</p>
-  </p>
-  <p>Password
-    <input type="password" name="password">
+    </p>
+    <p><button type="password" name="password" style="border:none; background: none"><i class="small material-icons">lock</i></button>
+    Password<input type="password" name="password">
     <p style="color:red">{{errors.password}}</p>
-  </p>
-  <p>Password (otra vez)
-    <input type="password" name="password2">
-  </p>
-  <input type="submit">
-</form>
+    </p>
+    <p><button type="password" name="password" style="border:none; background: none"><i class="small material-icons">lock</i></button>
+    Password (otra vez)<input type="password" name="password2">
+    </p>
+    <input type="submit">
+    </form>
+    </div>
+    </section>
