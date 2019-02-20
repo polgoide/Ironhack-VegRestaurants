@@ -29,14 +29,10 @@ let citySchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User"
   },
+  slug: String,
 }, {
   timestamps: true,
 })
-<<<<<<< HEAD
-=======
-
-
->>>>>>> Dany
 
 
 module.exports = mongoose.model('City', citySchema)

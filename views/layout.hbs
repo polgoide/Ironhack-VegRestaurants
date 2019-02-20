@@ -1,74 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{title}}</title>
-   <link href='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
-   <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v3.1.0/mapbox-gl-geocoder.css' type='text/css' />
-   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="/stylesheets/style.css" />
+  <link href='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+  <link rel='stylesheet'
+    href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v3.1.0/mapbox-gl-geocoder.css'
+    type='text/css' />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
-<body>
-   <nav class="cont-nav">
-    <div id="logo"></div>
-      <a id="page-name" href="/">Comer vegano</a>
-      </div>
-       <div class="search" style="padding-top: 0px; margin-top: 0px">
-      <form class="searcherDan" action="" style="padding-top: 0; margin-top: 0">
-      <input type="text" placeholder="Searching" style="padding-top: 0; margin-top: 0">
-      <button type="submit" class="btn-search" style="border:none; background: none">
-        <i class="material-icons">search</i>
-      </button>
-        
-      </form>
-   </div>
-      <div>
-    {{#if logged}}
-    <div class="menu">
-      <a href="/">Home</a>
-      <a href="/profile">Profile</a>
-      <a href="/logout">Logout</a>
-    </div>
-    {{else}}
-    <div class="menu">
-      <a href="/">Home</a>
-      <a href="/signup">Signup</a>
-      <a href="/login">Login</a>
-    </div>
-    {{/if}}
-    </div>
-    
-  </nav>
 
+<body>
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper green lighten-1">
+        <a href="/" class="brand-logo">Comer vegano</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li>
+            <div class="center row">
+              <div class="col s12">
+                <div class="row">
+                  <div class="input-field col s6 s12">
+                    <i class="material-icons prefix text-white">search</i>
+                    <input class="text-white" type="text" placeholder="Buscar">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          {{#if logged}}
+          <li><a href="/">Home</a></li>
+          <li><a href="/profile">Profile</a></li>
+          <li><a href="/logout">Logout</a></li>
+          {{else}}
+          <li><a href="/">Home</a></li>
+          <li><a href="/signup">Signup</a></li>
+          <li><a href="/login">Login</a></li>
+          {{/if}}
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <ul class="sidenav" id="mobile-demo">
+    <li>
+      <i class="material-icons prefix text-white">search</i>
+      <input class="text-white" type="text" placeholder="Buscar">
+    </li>
+    {{#if logged}}
+    <li><a href="/">Home</a></li>
+    <li><a href="/profile">Profile</a></li>
+    <li><a href="/logout">Logout</a></li>
+    {{else}}
+    <li><a href="/">Home</a></li>
+    <li><a href="/signup">Signup</a></li>
+    <li><a href="/login">Login</a></li>
+    {{/if}}
+  </ul>
 
   <section>
-  {{{body}}}
-</section>
+    {{{body}}}
+  </section>
   <footer class="page-footer">
-          <div class="container-fot">
-            <div class="row">
-              <div class="col l6 s12">
-                <h5 class="white-text">Footer Content</h5>
-                <p class="grey-text text-lighten-4"><a href="/privacidad">Privacy politics</a></p>
-              </div>
-              <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Join us</h5>
-                <ul>
-                  <li><a class="grey-text text-lighten-3" href="#">Facebook</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#">Twitter</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="footer-copyright">
-            © 2019 Copyright Text
-            </div>
-        </footer>
-{{!-- <footer>Esto es el footer</footer> --}}
+    <div class="container-fot">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Footer Content</h5>
+          <p class="grey-text text-lighten-4"><a href="/privacidad">Politica de privacidad</a></p>
+          <p class="grey-text text-lighten-4"><a href="/terminos">Terminos y condiciones</a></p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">Join us</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="#">Facebook</a></li>
+            <li><a class="grey-text text-lighten-3" href="#">Twitter</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      © 2019 Copyright Text
+    </div>
+  </footer>
+  {{!-- <footer>Esto es el footer</footer> --}}
   <script src="/javascripts/script.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  {{#if showMaterialize}}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>{{/if}}
 </body>
+
 </html>

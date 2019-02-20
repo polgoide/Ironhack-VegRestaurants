@@ -1,60 +1,97 @@
-<header>
+<header style="background-image: url('{{place.pictures.[1]}}')">
   <h2>{{place.name}}</h2>
   <p>{{place.description}}</p>
+  <i class="fa fa-heart" id="like"></i>
   <div id="rating">
+    {{place.rating}}/10
+    <p>{{place.social.likes}} opiniones</p>
     </div>
 </header>
-<div class="place-nav">
-<div><a href="#opiniones"><i class="material-icons">thumb_up_alt</i>{{place.rating}}/10 </a></div>
-<div><a href="#menu"><i class="material-icons">fastfood</i> {{place.foodType}}</a></div>
-<div><a href="#contacto"><i class="material-icons">location_on</i> {{place.address.location}}</a></div>
-<div><a href="#compartir"><i class="material-icons">share</i> Compartir</a></div>
+<div class="place-nav card-panel green lighten-3">
+<div><a href="#opiniones"><i class="fa fa-star"></i> <span class="place-nav-menu">{{place.rating}}/10</span></a></div>
+<div><a href="#menu"><i class="fa fa-cutlery"></i> <span class="place-nav-menu">Menu</span></a></div>
+<div><a href="#contacto"><i class="fa fa-map-marker"></i> <span class="place-nav-menu">Direccion</span></a></div>
+<div><a href="#compartir"><i class="fa fa-share-alt"></i> <span class="place-nav-menu">Compartir</span></a></div>
 </div>
 <article class="place-container">
-<div id="menu">
-  <h3>Menu de {{place.name}}</h3>
+<h3>Menu de {{place.name}}</h3>
+<div class="card-panel orange lighten-4" id="menu">
    <ul>
       <li>{{place.foodType}}</li>
       <li>{{place.type}}</li>
       <li>Rango de precio: {{place.priceRange}}</li>
     </ul>
 </div>
-<div id="fotos">
   <h3>Fotos de {{place.name}}</h3>
+<div  class="card-panel orange lighten-4" id="fotos">
   {{#each place.pictures}}
-  <img src="{{this}}" alt="Foto {{@index}}">
+  <img src="{{this}}" alt="Foto {{@index}}" class="materialboxed">
   {{/each}}
 </div>
-<div id="opiniones">
-  <h3>Opiniones de {{place.name}}</h3>
-  <form action="/comer/{{place._id}}" method="POST" enctype="multipart/form-data">
-  <input type="text" name="body" placeholder="Que te ha parecido {{place.name}}?">
-  <input name='pictures' type="file" accept="image/*">
-  <input type="submit">
+<h3>Opiniones de {{place.name}}</h3>
+<div  class="card-panel orange lighten-4" id="opiniones">
+  {{#if logged}}
+  <div class="place-new-comment">
+  <form action="/{{place.slug}}/{{place._id}}" method="POST" enctype="multipart/form-data">
+  <p><input class="white" type="text" name="body" placeholder="Que te ha parecido {{place.name}}?"></p>
+  <p><input name="pictures" type="file" accept="image/*"></p>
+  <p><input type="submit" class="waves-effect waves-light btn" value="Postear"></p>
+  </div>
+  {{else}}
+  <div class="place-new-comment">
+    <p>Para dar tu opinion, crea tu cuenta usando Facebook. Son 2 clicks!</p>
+    <a href="/facebook/login?next=/{{place.slug}}/{{place.id}}" class="waves-effect waves-light btn-large indigo darken-2">
+    <i class="fa fa-facebook"></i> Entra con Facebook</a>
+  </div>
+  {{/if}}
   </form>
+  {{#if comments}}
+  <h6>Opiniones de otros veganos</h6>
    {{#each comments}}
    <div id="place-comment">
-     <p>{{comment.body}}</p>
-     <p>{{comment.authorId}}</p>
+     <div class="place-comment-profile">
+      <img src="{{this.authorId.photoURL}}" alt="{{this.authorId.name}}">
+     </div>
+     <div class="place-comment-content">
+     <p><b>{{this.authorId.name}}</b></p>
+     <p>{{this.body}}</p>
+     {{#each this.pictures}}
+     <img src="{{this}}" alt="{{@index}}" class="materialboxed">
+     {{/each}}
+     </div>
    </div>
    {{/each}}
+   {{else}}
+   <p>Se el primero en dar tu opinion sobre {{place.name}}!</p>
+   {{/if}}
 </div>
-<div id="contacto">
-  <h3>Contactar con {{place.name}}</h3>
+<h3>Contactar con {{place.name}}</h3>
+<div class="card-panel orange lighten-4" id="contacto">
   <div id="place-column-50">
     <ul>
       <li>Direccion: {{place.address.location}}</li>
       <li>{{place.address.coordinates.lng}}, {{place.address.coordinates.lat}}</li>
       <li>Abierto: {{place.openTimes}}</li>
       {{#if place.phoneNumber}}<li>Telefono: {{place.phoneNumber}}</li>{{/if}}
-      <li>Instagram: {{place.social.instagram}}</li>
-      <li>Foursquare: {{place.social.foursquare}}</li>
-      <li>Facebook: {{place.social.facebook}}</li>
-      <li>Twitter: {{place.social.twitter}}</li>
     </ul>
-  </div>
+</div>
   <div id="map"></div>
 </div>
+      <h3>{{place.name}} en  las redes</h3>
+<div class="card-panel orange lighten-4" id="social">
+  <ul>
+      {{#if place.social.instagram}}<li><a href="https://www.instagram.com/{{place.social.instagram}}" target="_blank" title="Instagram {{place.name}}" class="waves-effect waves-light btn-floating btn-large">
+<i class="fa fa-instagram"></i></a></li>{{/if}}
+      {{#if place.social.foursquare}}<li><a href="{{place.social.foursquare}}" target="_blank"  title="Foursquare {{place.name}}" class="waves-effect waves-light btn-floating btn-large pink lighten-2">
+<i class="fa fa-foursquare"></i></a></li>{{/if}}
+      {{#if place.social.facebook}}<li><a href="https://www.facebook.com/{{place.social.facebook}}" target="_blank" title="Facebook {{place.name}}" class="waves-effect waves-light btn-floating btn-large indigo darken-2">
+<i class="fa fa-facebook"></i></a></li>{{/if}}
+      {{#if place.social.twitter}}<li><a href="https://twitter.com/{{place.social.twitter}}" target="_blank" title="Twitter {{place.name}}" class="waves-effect waves-light btn-floating btn-large blue lighten-3">
+<i class="fa fa-twitter"></i></a></li>{{/if}}
+{{#if place.social.url}}<li><a href="{{place.social.url}}" target="_blank" title="Website {{place.name}}" class="waves-effect waves-light btn-floating btn-large grey">
+<i class="fa fa-link"></i></a></li>{{/if}}
+    </ul>
+  </div>
 </article>
 
 <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>

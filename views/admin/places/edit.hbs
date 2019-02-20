@@ -1,6 +1,12 @@
-<h2>Add a new place</h2>
 <article class="admin">
-
+<a href="/admin/places">Volver al listado</a>
+<h2>Edit {{place.name}}</h2>
+<div class="block" value="{{fqBlock}}" style="display:none">
+  <p>Foursquare URL
+  <input type="text" id="fqUrl">
+  <button id="fqBtn">Importar</button>
+</p>
+</div>
 <form action="/admin/places/edit/{{place._id}}" method="POST">
   <h3>Place description</h3>
 <div class="block">
@@ -49,13 +55,13 @@
 <h3>Pictures</h3>
 <div class="block">
 <p>Add a a new picture <i class="material-icons" id="addPicBtn">add_circle</i>
+<p>To delete a picture, empty its url.</p>
   <div id="addPicContainer">
     </div>
   {{#each place.pictures}}
   <div class="admin-place-pic">
   <img src="{{this}}" width="150px">
   <input type="text" name="pictures"  id="placePics" value="{{this}}"  size="40">
-  <i class="material-icons DltPicBtn" id="DltPicBtn">delete</i>
   </div>
   {{/each}}
 </p>
@@ -80,9 +86,12 @@
 <p>Facebook
   <input type="text" name="social.facebook"  id="placeFacebook" value="{{place.social.facebook}}">
 </p>
+<p>URL
+  <input type="text" name="social.url"  id="placeUrl" value="{{social.url}}">
+</p>
 </div>
 <input type="text" name="foursquareId"  id="placeFoursquareId" hidden value="{{place.foursquareId}}">
-<input type="text" name="slug"  id="placeSlug" hidden value="{{slug}}">
+<input type="text" name="slug"  id="placeSlug" value="{{place.slug}}">
 <input type="text" name="address.coordinates.lat"  id="placeLat" value="{{place.address.coordinates.lat}}" hidden>
 <input type="text" name="address.coordinates.lng"  id="placeLng" value="{{place.address.coordinates.lng}}" hidden>
 <p>Active

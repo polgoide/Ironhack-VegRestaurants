@@ -38,7 +38,6 @@ router.get('/facebook/login',  passport.authenticate('facebook', {scope: ['email
 router.post('/login', passport.authenticate('local'), (req, res, next) => {
   if (req.query.next) return res.redirect(req.query.next) // If there was a next, redirect the user there.
   else res.redirect('/')  // Otherwise, redirect him to home page
-
 })
 
 router.get('/login', isAuth, (req, res, next) => {

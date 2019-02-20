@@ -12,12 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('addPicContainer').appendChild(newPic)
   })
 
-let DltPicBtn = document.querySelector('.DltPicBtn')
-console.log(DltPicBtn[0])
-DltPicBtn.addEventListener('click', e => {
-  console.log(e.target.parentNode)
-  e.target.parentNode.parentNode.removeChild()
-})
 // Map
 
 mapboxgl.accessToken = 'pk.eyJ1IjoicG9sZ29pZGUiLCJhIjoiY2pzMXhrOW1uMXo0ZTQ0bzNscG52N2c3OSJ9.idfHSgW5pK1sKEx5OAtnTw';
@@ -81,6 +75,7 @@ let urlPics = `https://api.foursquare.com/v2/venues/${fqUrl.value}/photos?client
       placeFoursquare.value = venue.canonicalUrl || ''
       placeTwitter.value = venue.contact.twitter || ''
       placeFacebook.value = venue.contact.facebookUsername || ''
+      placeUrl.value = venue.url || ''
       placeFoursquareId.value = venue.id || ''
       placeSlug.value = slugify(venue.name) || ''
   })

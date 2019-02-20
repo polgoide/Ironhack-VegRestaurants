@@ -58,8 +58,6 @@ app.use(require('node-sass-middleware')({
 }));
 
 
-
-
 //Static
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -69,6 +67,7 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
 app.locals.logged = false
+app.locals.showMaterialize = true
 
 // Nav bar dynamic content based on session
 function isLogged(req, res, next) {
@@ -84,14 +83,8 @@ function isLogged(req, res, next) {
 const index = require('./routes/index');
 const auth = require('./routes/auth');
 const admin = require('./routes/admin');
-const cities = require('./routes/cities');
-app.use('/', cities);
-<<<<<<< HEAD
 app.use('/admin', isLogged//, isLoggedIn, isAdmin
   , admin);
-=======
-app.use('/admin',  isLogged, isLoggedIn, isAdmin, admin);
->>>>>>> Dany
 app.use('/', isLogged, auth);
 app.use('/', isLogged, index);
 

@@ -39,6 +39,7 @@ let placeSchema = new Schema({
     instagram: String,
     facebook: String,
     foursquare: String,
+    url: String,
   },
   foursquareId:  {
     type: String,

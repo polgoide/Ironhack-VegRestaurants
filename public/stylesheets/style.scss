@@ -20,26 +20,17 @@ input:focus {
   background-color: #c7ed95;
 }
 
+input[type="file"] {
+  width: 100%;
+  height: 30px;
+}
 
 // NAV BAR
-
-.cont-nav{
-  height: 60px;
-  width: 100%;
-  background-color: #5dbb8f;
-  padding: 10px 20px;
-  margin: 0 auto;
-  box-sizing: border-box;
-  position: fixed;
-  top:0;
-  left: 0;
-  color: rgb(94, 115, 155);
-  font-size: 1.2rem;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: nowrap;
-  align-items: center;
-  z-index: 1;
+.nav-wrapper{
+  padding: 0 0 0 20px;
+}
+nav .brand-logo {
+  font-size: 1.6rem;
 }
 
 nav a, footer a {
@@ -48,23 +39,14 @@ nav a, footer a {
 nav div {
   margin: 0 auto;
 }
-nav input {
-  height: 40px;
-  font-size: 1rem;
-  border: 1px solid #D0CFCE;
-  outline: none;
-  border-width: 2px;
-  border-color: #fff;
-}
+
 nav input[type=text] {
   width: 60%;
   padding: 0 20px;
 }
-nav input[type=submit] {
-  width: 10%;
-}
-.menu a {
-  padding: 5px;
+nav input[type=text]:focus {
+  border-bottom: 1px solid #fff;
+  box-shadow: 0 1px 0 0 #fff;
 }
 
 
@@ -88,20 +70,40 @@ nav input[type=submit] {
 header{
   width: 100%;
   height: 300px;
-  background-image: url('https://static1.squarespace.com/static/52a0e62be4b0aa09f5b95593/52a0f48ee4b0f982fc451b89/55398ad7e4b0252fc6174702/1429834460939/easy+%23vegan+tacos+%7C+RECIPE+on+hotforfoodblog.com');
   background-size: cover;
+  opacity: 0.6;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
 }
-
+header h2 {
+  opacity: 1;
+}
+header > * {
+  width: 100%;
+}
+#rating {
+width: 100px;
+height: 60px;
+background-color: rgb(37, 184, 56);
+border-radius: 10px;
+padding: 5px;
+margin: 0 auto;
+font-size: 1.4rem;
+line-height: 1;
+}
+#rating > p{
+  font-size: 0.8rem;
+}
 #page-name{
   display: flex;
   text-align: center;
 }
 
 // BODY CONTAINER
-section {
-  //width: 80%;
-  margin: 60px auto  0 auto;
-}
+
 
 
 
@@ -137,7 +139,6 @@ section {
   font-weight: bold;
   cursor:pointer;
   font-size: 0.8rem;
-  border-radius: 10px;
   font-family: "Lucida Grande";
   font-size: .7em;
   transition: all .3s ease;
@@ -224,7 +225,10 @@ h3{
   align-items: center;
   align-content: space-between;
   justify-content: center;
-  background-image: linear-gradient(#8cc63e, #FFF);
+}
+.card-panel {
+  margin: 0;
+  padding: 12px;
 }
 .place-nav div{
   width: 25%;
@@ -251,16 +255,36 @@ h3{
   padding: 20px;
   margin: 20px 0px;
   background-color: #FFCF75;
-  border-radius: 10px;
 }
 .place-column-50, .place-container .map {
   width: 50%;
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> Dany
-
+.place-new-comment{
+margin: 20px;
+}
+#place-comment {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 10px;
+}
+#place-comment:nth-child(even) {
+  background-color: #fff3e0;
+}
+#place-comment:nth-child(odd) {
+  background-color: #ffffff;
+}
+.place-comment-profile {
+  padding: 20px;
+}
+.place-comment-content img{
+  width: 50%;
+}
+#social > ul{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
 // ADMIN
 .admin {
   width: 80%;
@@ -307,7 +331,7 @@ h3{
 .city-title{
   display:flex;
   align-items: flex-start;
-  justify-content: flex-end; 
+  justify-content: center; 
 }
 .nav-btn{
   border:solid #48555c;
@@ -322,9 +346,6 @@ h3{
   outline: none;
 }
 
-.nav-btn.hover{
-  opacity: 7;
-} 
 // UNIQUE STYLES
 // FB Connect
 .loginBtn {
@@ -375,27 +396,14 @@ h3{
 .loginBtn--facebook:focus {
   background-color: #5B7BD5;
   background-image: linear-gradient(#5B7BD5, #4864B1);
-<<<<<<< HEAD
-}
-
-#container-city{
-=======
   padding: 0px;
   margin-top: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-html{
-  margin : 0;
-  padding:0;
-}
-a {
-  text-decoration: none;
 }
 
 
 //DETAIL
 .cont-detail{
->>>>>>> Dany
   display:flex;
   flex-direction: row;
   justify-content: space-between;
@@ -405,4 +413,38 @@ a {
 
 .id-card{
   color:rgb(58, 86, 102);
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+#fotos {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-around;
+  justify-content: center;
+}
+.material-placeholder{
+  width: 45%;
+}
+
+#fotos img{
+  width: 100%;
+  padding: 5px;
+}
+
+
+// MOBILE SCREEN SIZE
+@media screen and (max-width: 480px) {
+.place-nav-menu {
+  display: none;
+}
+.place-nav i {
+  font-size: 2rem;
+}
+.material-placeholder{
+  width: 100%;
+}
 }

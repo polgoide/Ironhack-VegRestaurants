@@ -1,4 +1,5 @@
 <article class="admin">
+  <a href="/admin/cities">Volver al listado</a>
 <h2>Add a new city</h2>
 <form action="{{config.action}}" method="POST" enctype="multipart/form-data">
 <p>City name
@@ -10,10 +11,15 @@
 <p>Coordinates
   <input type="text"  name="address.coordinates" value="{{city.address.coordinates}}">
 </p>
-<select name="active">
+<p>Slug
+  <input type="text"  name="slug" value="{{city.slug}}">
+</p>
+<p>Activar
+  <select name="active">
     <option value="true">Active</option>
     <option value="false">Inactive</option>
   </select>
+</p>
   <input type="submit" value="{{config.submit}}">
 </form>
 </article>

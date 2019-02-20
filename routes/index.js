@@ -2,23 +2,44 @@ const express = require('express');
 const router = express.Router();
 const Place = require('../models/Place')
 const Comment = require('../models/Comment.js')
+const City = require('../models/City')
 const uploadCloud = require('../helpers/cloudinary')
 
+// Cities
+
+router.get('/cities', (req,res,next)=> {
+  City.find()
+  .then (cities =>{
+    res.render('cities', {cities})
+  }).catch(err=> next (e))
+})
+
+
+router.get('/ciudad/:id', (req,res,next) =>{
+  const {id} = req.params
+  City.findById(id)
+  .then(city=>{
+    res.render('detail', city)
+  }).catch(err=>{
+    res.render('error', err)})
+})
+
+
 // Place: add comment
-router.post('/comer/:id',
+router.post('/:slug/:id',
 //islogged
   uploadCloud.single('pictures'), (req, res, next) => {
     if (req.file) req.body.pictures = [req.file.url]
-    console.log(req.body)
-  req.body.authorId = req.user._id
+    req.body.authorId = req.user._id
     req.body.place = req.params.id
+    console.log('q', req.body)
   Comment.create(req.body)
-    .then(comment => res.redirect('/comer/' + req.params.id + '/#opiniones'))
+    .then(comment => res.redirect(`/${req.params.slug}/${req.params.id}/#opiniones`))
     .catch(e=> next(e))
 })
 
 // Place detail
-router.get('/comer/:id', (req, res, next) => {
+router.get('/:slug/:id', (req, res, next) => {
   const { id } = req.params
   Promise.all([
     Place.findById(id),
@@ -31,6 +52,7 @@ router.get('/comer/:id', (req, res, next) => {
   
 })
 
+// T&C
 router.get('/terminos', (req, res, next) => {
   res.render('terminos');
 })
@@ -40,11 +62,14 @@ router.get('/privacidad', (req, res, next) => {
 
 /* GET home page */
 router.get('/', (req, res, next) => {
-  Place.find({active: true})
-    .then(places => {
-      res.render('index', {places});
+  Promise.all([
+    Place.find({ active: true }),
+    City.find({ active: true }),
+  ])
+    .then(results => {
+      res.render('index', { places: results[0], cities: results[1] });
     })
-  .catch(e=> next(e))
+    .catch(e => console.log(e))
   
 })
 

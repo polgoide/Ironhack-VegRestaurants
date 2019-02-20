@@ -9,7 +9,8 @@ let { sendWelcomeMail, sendNewsletter } = require('../helpers/mailer')
 let multer = require('multer')
 let upload = multer({ dest: './public/uploads' })
 let uploadCloud = require('../helpers/cloudinary')
-
+let moment = require('moment');
+moment().format('L');
 // Profile
 
 
@@ -28,12 +29,18 @@ let uploadCloud = require('../helpers/cloudinary')
 
 //CITIES
 
-router.post('/cities/edit/:id', (req, res, next) => {
-  City.findById(req.params.id)
+router.post('/cities/edit/:id', uploadCloud.single('photoURL'), (req, res, next) => {
+  if(req.file) req.body.photoURL = req.file.url
+  console.log({...req.body})
+  City.findByIdAndUpdate(req.params.id, { ...req.body }, {new:true})
     .then(city => {
-    res.redirect('/admin/cities/')
+      const config = {
+        action: `/admin/cities/edit/${req.params.id}`,
+        submit: 'Update',
+      }
+    res.render('admin/cities/new', {city, config})
   })
-  .catch(e=> next(e))
+  .catch(e=> console.log(e))
 })
   
 router.get('/cities/edit/:id', (req, res, next) => {
@@ -43,14 +50,13 @@ router.get('/cities/edit/:id', (req, res, next) => {
         action: `/admin/cities/edit/${req.params.id}`,
         submit: 'Update',
       }
-      console.log({city, config})
     res.render('admin/cities/new', {city, config})
   })
   .catch(e=> next(e))
   })
 
 router.post('/cities/new', isAdmin, uploadCloud.single('photoURL'), (req, res, next) => {
-  req.body.photoURL = req.file.url
+  if(req.file) req.body.photoURL = req.file.url
   City.create({...req.body, authorId: req.user._id })
   .then(()=>{
     res.redirect('/admin/cities/')
@@ -136,14 +142,11 @@ router.get('/users', (req, res, next) => {
 
 // Edit place
 router.post('/places/edit/:id', (req, res, next) => {
-  console.log('f',req.body)
-  Place.findByIdAndUpdate(req.params.id, req.body)
+  const newArray = req.body.pictures.filter(e => e != '')
+  if (req.body.pictures.length > 1) req.body.pictures = newArray 
+  Place.findByIdAndUpdate(req.params.id, req.body, {new: true})
     .then(place => {
-      place.pictures.push(req.body.pictures)
-      place.save()
-
-      console.log('p', place)
-      console.log('b',req.body)
+      console.log(place.pictures)
     res.render('admin/places/edit', {place})
   })
   .catch(e=> next(e))
