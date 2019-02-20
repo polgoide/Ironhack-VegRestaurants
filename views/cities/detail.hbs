@@ -1,12 +1,13 @@
 
-<h2>{{cityname}}</h2>
-<img src="{{city.photoURL}}" alt="{{cityname}}">
-
-<section class="cont-detail">
-<div id="map">
+<div id="cover-detail">
+<img class="cover-img-det"src="{{city.photoURL}}" alt="{{cityname}}">
+<button class="city-title-det">{{city.cityname}}</button>
 </div>
+<h3 style="text-align: center; font-size:2.5em;font-family: 'Neucha', cursive;, cursive; color: rgb(35, 45, 53);">Los  mejores restaurantes veganos </h3>
+<section class="cont-detail">
+
 {{#if places}}
-<h3>Los  mejores restaurantes veganos de {{cityname}}</h3>
+
 {{#each places}}
   <a href="/{{this.slug}}/{{this._id}}">
     <div class="imgs-cities" style="background-image: url({{this.pictures.[0]}})">
@@ -15,7 +16,8 @@
 </a>
 {{/each}}
 {{/if}}
-
+<div id="map">
+</div>
 <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
 <script>
 mapboxgl.accessToken = "pk.eyJ1IjoiZGFuaWVsYXpyIiwiYSI6ImNqczF4a29xMjF5c3E0M28zdjdmbGtuOGYifQ.qi5aM2jCWVOdO6quS6IqFQ";
