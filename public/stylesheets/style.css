@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
@@ -249,6 +250,18 @@ h3 {
   flex-wrap: wrap;
   justify-content: space-around; }
 
+.cover-home {
+  background-image: url("../images/receta-de-ensalada-de-lentejas-vegetariana.jpg");
+  width: 100%;
+  height: 300px;
+  background-size: cover;
+  opacity: 0.6;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  text-align: center; }
+
 .admin {
   width: 80%;
   margin: 0 auto;
@@ -311,8 +324,8 @@ html {
 a {
   text-decoration: none; }
 
-.log-sign {
-  background-image: url("https://i.dietdoctor.com/es/wp-content/uploads/2017/12/DD_90_KF_swide2.jpg?auto=compress%2Cformat&w=1600&h=617&fit=crop");
+.sign-log {
+  background-image: url("../images/shutterstock_270584885.jpg");
   background-size: 100vw 100vh;
   background-position: 0;
   background-repeat: no-repeat;
@@ -321,12 +334,23 @@ a {
   align-items: center;
   justify-content: center;
   flex-wrap: nowrap;
-  flex-direction: row;
-  margin: 0 80px 0 80; }
+  flex-direction: row; }
+
+.log-sign {
+  background-image: url("../images/54281752-comida-vegetariana-sándwich-vegetariano.jpg");
+  background-size: 100vw 100vh;
+  background-position: 0;
+  background-repeat: no-repeat;
+  opacity: 0.75;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  flex-direction: row; }
 
 .form-log {
   justify-content: space-around;
-  margin: 100px;
+  margin: 25px;
   padding: 70px;
   border-radius: 40px;
   background-color: rgba(178, 193, 194, 0.85); }
@@ -392,9 +416,18 @@ a {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 #cover-detail {
+  background-image: src("{{city.photoURL}}");
   display: flex;
   align-items: center;
   justify-content: center; }
+
+.cover-img-det {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background-size: cover;
+  width: 100%;
+  height: 300px; }
 
 .cont-detail {
   display: flex;
@@ -440,14 +473,6 @@ a {
   padding: 10px 30px;
   height: 150px;
   width: 450px; }
-
-.cover-img-det {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  background-size: cover;
-  width: 100%;
-  height: 300px; }
 
 @media screen and (max-width: 480px) {
   .place-nav-menu {
