@@ -1,20 +1,36 @@
-<h1>Log in</h1>
+<section class="log-sign">
+  {{!-- c="../images/receta-de-ensalada-de-lentejas-vegetariana.jpg --}}
 
+<div class="form-log">
   <p style="color:red">{{error}}</p>
-
+  <div>
+  <h6 style="text-align: center">Log in</h6>
+  <button style="border:none; background:rgba(60, 63, 63, 0.356); border-radius: 50%;"><i class="large material-icons">person</i></button>
+  </div>
 {{#if next}}
+
 <form action="/login?next={{next}}" method="post">
 {{else}}
 <form action="/login" method="post">
 {{/if}}
-  <p>Email
+  <p>
+    <button type="password" name="password" style="border:none; background: none"><i class="small material-icons">email</i></button>
+    Email
     <input type="email" name="email">
   </p>
-  <p>Password
-    <input type="password" name="password">
+  <p>
+    <button type="password" name="password" style="border:none; background: none"><i class="small material-icons">lock</i></button>
+    Password
+    <input type="password">
   </p>
-  <input type="submit">
+  <button class="btn-input"style="btn-large waves-effect" type="submit">Submit</button>
 </form>
 
 
-<button class="loginBtn loginBtn--facebook"><a href="/facebook/login">Entra con Facebook</a></button>
+<button class="loginBtn loginBtn--facebook"><a style="color:white" href="/facebook/login">Entra con Facebook</a></button>
+
+<p style="text-align: center; color:rgb(0, 0, 0)"><a href="/signup">Crear cuenta</p></a>
+</div>
+
+
+ </section>

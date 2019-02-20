@@ -7,6 +7,10 @@ let multer = require('multer')
 let upload = multer({ dest: './public/uploads' })
 let uploadCloud = require('../helpers/cloudinary')
 
+// let instance = M.Carousel.init({
+//   fullWidth: true
+// })
+
 // Profile
 router.post('/profile', isLoggedIn, uploadCloud.single('photoURL'), (req, res) => {
   req.body.photoURL = req.files.photoURL[0].url

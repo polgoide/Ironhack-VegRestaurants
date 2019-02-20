@@ -1,6 +1,6 @@
 
 <h2>{{cityname}}</h2>
-{{city.photoURL}}
+<img{{city.photoURL}}>
 
 <section class="cont-detail">
 <div id="map">
@@ -24,14 +24,12 @@ const marker = new mapboxgl.Marker({
 .addTo(map)
 </script>
 
-
 <div class="id-card">
-  <div class="row">
     <div class="col s12 m7">
       <div class="card">
         <div class="card-image">
-          <img src="//public/images/img-2.jpg">
-          <i class="card-title">Card Title</i>
+          <img style="50vw" src='/images/unam_portada_ciudad_universitaria.jpg'>
+          <h2 class="card-ttl">Tips</h2>
         </div>
         <div class="card-content">
           <p>I am a very simple card. I am good at containing small bits of information.
@@ -42,7 +40,5 @@ const marker = new mapboxgl.Marker({
         </div>
       </div>
     </div>
-  </div>
-<button><a href="cities/detail">Go back</a></button>
 </div>
 </section>

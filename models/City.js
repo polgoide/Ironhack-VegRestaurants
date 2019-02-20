@@ -6,9 +6,12 @@ let citySchema = new Schema({
     type: String,
     required: true
   },
+  info:{
+    type:String,
+  },
   photoURL: {
     type:String,
-    default: 'https://www.worldatlas.com/r/w727-h434-c727x434/upload/4f/df/5e/shutterstock-501836233.jpg'
+    default: '/images/alimentos-vegetarianos.jpg'
   },
   likes: {
     type:String,

@@ -7,6 +7,7 @@ const cities =  [
 {
   cityname : 'Mexico city',
   photoURL: 'https://www.riotgames.com/darkroom/1440/6d50530c079206a27f4444ce4b481ae1:486c2e1b548055480a3a169743734be8/mexico-city-office-header-1.jpg',
+  info: "Mexico City is the capital city of Mexico and one of the most important political, cultural, educational and financial centres in North America. It is ranked as the eighth richest city in the world. Settling on an altitude of more than 2,000 metres, tourists are instantly enamoured by the city's glamour, cultural heritage and contemporary development. Every corner of the city is sprinkled with stories to tell of famous personalities and ancient tribes. While the Aztecs discovered and gave the city its culture and heritage, the Spanish revamped and added their touch. Today, the cultural amalgamation is mirrored in every landmark of Mexico City, be it the Templo Mayor, El Zócalo square, Catedral Metropolitana or Frida Kahlo museum.",
   address: {
     coordinates: [-99.1652, 19.3889],
   },
