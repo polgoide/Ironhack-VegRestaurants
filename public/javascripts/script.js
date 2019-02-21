@@ -10,12 +10,3 @@ document.addEventListener('DOMContentLoaded', () => {
   var navbarInstances = M.Sidenav.init(navbar);
 
 }, false);
-
-// Place pages
-
-// let likeBtn = document.getElementById('like')
-  
-// likeBtn.addEventListener('click', () => {
-//   console.log('hola')
-  
-// })
