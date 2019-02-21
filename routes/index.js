@@ -48,10 +48,10 @@ router.get('/ciudad/:id', (req, res, next) => {
 
 // Place: add comment
 router.post('/:slug/:id', isAuth, uploadCloud.single('pictures'), (req, res, next) => {
+    console.log('q', req.body)
     if (req.file) req.body.pictures = [req.file.url]
     req.body.authorId = req.user._id
     req.body.place = req.params.id
-    console.log('q', req.body)
     Comment.create(req.body)
     .then(comment => res.redirect(`/${req.params.slug}/${req.params.id}/#opiniones`))
     .catch(e=> next(e))
