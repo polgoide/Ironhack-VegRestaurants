@@ -47,18 +47,18 @@ router.get('/ciudad/:id', (req, res, next) => {
 
 
 // Place: add comment
-router.post('/:slug/:id', isAuth, uploadCloud.single('pictures'), (req, res, next) => {
+router.post('/restaurante/:slug/:id', isAuth, uploadCloud.single('pictures'), (req, res, next) => {
     if (req.file) req.body.pictures = [req.file.url]
     req.body.authorId = req.user._id
     req.body.place = req.params.id
     console.log('q', req.body)
-  Comment.create(req.body)
+    Comment.create(req.body)
     .then(comment => res.redirect(`/${req.params.slug}/${req.params.id}/#opiniones`))
     .catch(e=> next(e))
 })
 
 // Place detail
-router.get('/:slug/:id', (req, res, next) => {
+router.get('/restaurante/:slug/:id', (req, res, next) => {
   const { id } = req.params
   Promise.all([
     Place.findById(id).populate('cityId'),

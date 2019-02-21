@@ -165,9 +165,9 @@ router.get('/places/edit/:id', (req, res, next) => {
 
 // New place
 router.post('/places/new', (req, res, next) => {
+  console.log(req.body)
   Place.create({...req.body, authorId: req.user._id })
     .then(r => {
-    console.log(r)
     res.redirect('/admin/places/')
   })
   .catch(e=> next(e))
