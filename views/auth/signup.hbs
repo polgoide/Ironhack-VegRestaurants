@@ -2,18 +2,25 @@
   <div class="form-log">
     <h6>Crea tu cuenta</h6>
     <form action="/signup" method="post">
-    <p><button type="email" name="email" style="border:none; background: none"><i class="small material-icons">email</i></button>
-    Email <input type="email" name="email" value="{{email}}" required>
-    <p style="color:red">{{errors.email}}</p>
-    </p>
-    <p><button type="password" name="password" style="border:none; background: none"><i class="small material-icons">lock</i></button>
-    Password<input type="password" name="password" required>
-    <p style="color:red">{{errors.password}}</p>
-    </p>
-    <p><button type="password" name="password" style="border:none; background: none"><i class="small material-icons">lock</i></button>
-    Password (otra vez)<input type="password" name="password2" required>
-    </p>
-    <input type="submit">
+      <p><button type="email" name="email" style="border:none; background: none"><i
+            class="small material-icons">email</i></button>
+        Email <input type="email" name="email" value="{{email}}" required>
+        <p style="color:red">{{errors.email}}</p>
+      </p>
+      <p><button type="password" name="password" style="border:none; background: none"><i
+            class="small material-icons">lock</i></button>
+        Password<input type="password" name="password" required>
+        <p style="color:red">{{errors.password}}</p>
+      </p>
+      <p><button type="password" name="password" style="border:none; background: none"><i
+            class="small material-icons">lock</i></button>
+        Password (otra vez)<input type="password" name="password2" required>
+      </p>
+      <input type="submit" class="waves-effect waves-light btn">
     </form>
-    </div>
-    </section>
+    <p>
+      <a href="/facebook/login" class="waves-effect waves-light btn-large indigo darken-2"><i
+          class="fa fa-facebook"></i> Entra con Facebook</a>
+    </p>
+  </div>
+</section>

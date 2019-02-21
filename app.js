@@ -87,8 +87,7 @@ hbs.registerHelper('get_length', function (obj) {
 const index = require('./routes/index');
 const auth = require('./routes/auth');
 const admin = require('./routes/admin');
-app.use('/admin', isLogged//, isLoggedIn, isAdmin
-  , admin);
+app.use('/admin', isLogged, isLoggedIn, isAdmin, admin);
 app.use('/', isLogged, auth);
 app.use('/', isLogged, index);
 

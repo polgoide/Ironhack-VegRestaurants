@@ -70,6 +70,7 @@ nav input[type=text]:focus {
   font-size: 1rem;
   padding: 10px;
   line-height: 2rem;
+  width: 250px;
 }
 .btn{
   font-size: 1rem;
@@ -490,6 +491,7 @@ a {
 .list-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .list-container div{
   height: 200px;
@@ -647,11 +649,15 @@ height: 90vh;
 nav .brand-logo {
   font-size: 1.6rem;
 }
+.btn-large {
+  width: 100%;
+}
+.form-log{
+  padding:30px;
+}
 }
 
 h5{
   color:rgb(34, 20, 20);
   background: none;
-  width: 20%;
-  height: 80px;
 }
