@@ -62,7 +62,6 @@ let urlPics = `https://api.foursquare.com/v2/venues/${fqUrl.value}/photos?client
       placeFoodType.value = venue.categories[0].shortName || ''
       placeRating.value  = venue.rating || ''
       placePriceRange.value = venue.price.currency || '$$'
-      placeOpenTimes.value = venue.hours.timeframes[0].open[0].renderedTime + ' de ' + venue.hours.timeframes[0].days || ''
       placeAddress.value = venue.location.address + ', ' + venue.location.city || ''
       placeLat.value = venue.location.lat || 0
       placeLng.value = venue.location.lng || 0
