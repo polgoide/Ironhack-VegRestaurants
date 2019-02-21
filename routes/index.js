@@ -16,7 +16,6 @@ router.post('/search', (req, res, next) => {
     Place.find({$or:[ {name: {$regex: query, $options: 'i'}}, {type: {$regex: query, $options: 'i'}}, {description: {$regex: query, $options: 'i'}}, {foodType: {$regex: query, $options: 'i'}}]})
   ])
     .then(result => {
-      console.log(result)
       res.render('search', {cities: result[0], places: result[1] })
     })
   .catch(e=> next (e))
@@ -47,7 +46,7 @@ router.get('/ciudad/:id', (req, res, next) => {
 
 
 // Place: add comment
-router.post('/:slug/:id', isAuth, uploadCloud.single('pictures'), (req, res, next) => {
+router.post('/:slug/:id', uploadCloud.single('pictures'), (req, res, next) => {
     console.log('q', req.body)
     if (req.file) req.body.pictures = [req.file.url]
     req.body.authorId = req.user._id

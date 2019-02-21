@@ -75,7 +75,7 @@
     <div class="place-column-50">
     <ul>
       <li><i class="fa fa-map-marker" aria-hidden="true"></i> {{place.address.location}}</li>
-      <li><i class="fa fa-clock-o" aria-hidden="true"></i> {{place.openTimes}}</li>
+      {{#if place.openTimes}}<li><i class="fa fa-clock-o" aria-hidden="true"></i> {{place.openTimes}}</li>{{/if}}
       {{#if place.phoneNumber}}<li><i class="fa fa-phone" aria-hidden="true"></i> <a href="tel:{{place.phoneNumber}}">{{place.phoneNumber}}</a></li>{{/if}}
     </ul>
 </div>
