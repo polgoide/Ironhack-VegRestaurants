@@ -164,7 +164,7 @@ router.get('/places/edit/:id', (req, res, next) => {
 })
 
 // New place
-router.post('/places/new', isAdmin, (req, res, next) => {
+router.post('/places/new', (req, res, next) => {
   Place.create({...req.body, authorId: req.user._id })
     .then(r => {
     console.log(r)

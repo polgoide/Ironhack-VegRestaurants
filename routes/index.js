@@ -19,7 +19,7 @@ router.post('/search', (req, res, next) => {
       console.log(result)
       res.render('search', {cities: result[0], places: result[1] })
     })
-  .catch(err=> next (e))
+  .catch(e=> next (e))
 })
 
 // Cities
@@ -29,7 +29,7 @@ router.get('/ciudades', (req,res,next)=> {
     .then(cities => {
     req.app.locals.title = "Ciudades con restaurantes veganos"
     res.render('cities/cities', {cities})
-  }).catch(err=> next (e))
+  }).catch(e=> next (e))
 })
 
 
@@ -42,7 +42,7 @@ router.get('/ciudad/:id', (req, res, next) => {
     .then(response => {
     req.app.locals.title = `Comida vegana en ${response[0].cityname}`
     res.render('cities/detail', {city: response[0], places: response[1]})
-  }).catch(e=> console.log(e))
+  }).catch(e=> next(e))
 })
 
 
@@ -92,7 +92,7 @@ router.get('/', (req, res, next) => {
       req.app.locals.title = `Comer vegano: los mejores restaurantes`
       res.render('index', { places: results[0], cities: results[1] });
     })
-    .catch(e => console.log(e))
+    .catch(e => next(e))
   
 })
 
