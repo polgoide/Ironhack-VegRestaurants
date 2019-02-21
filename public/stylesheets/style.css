@@ -474,6 +474,75 @@ a {
   height: 150px;
   width: 450px; }
 
+.profile-cont {
+  height: 90vh; }
+
+.profile-cov {
+  display: flex;
+  align-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-image: url("https://www.soscuisine.com/media/images/recettes/very_large/860.jpg");
+  background-size: cover;
+  height: 300px; }
+
+.btn-ProfileEdit {
+  background-color: rgba(127, 153, 181, 0.434);
+  padding: 20px;
+  position: absolute;
+  top: 280px;
+  left: 220px;
+  color: white;
+  justify-content: center;
+  opacity: .2;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  font-family: Avenir;
+  font-size: 1 em;
+  transition: all .3s ease;
+  outline: none;
+  height: 20px; }
+
+.btn-ProfileEdit.hover {
+  opacity: .9; }
+
+.info-profile {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: center;
+  position: absolute;
+  top: 500px;
+  left: 40px;
+  margin: 10px;
+  padding: 20px;
+  width: 30%;
+  height: 70px;
+  border-radius: 20px;
+  background-color: rgba(112, 153, 181, 0.2); }
+
+.pic {
+  display: flex;
+  align-content: center;
+  justify-content: flex-start;
+  position: absolute;
+  top: 250px;
+  left: 150px; }
+
+.con-comment {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: absolute;
+  top: 400px;
+  right: 180px;
+  background-color: rgba(160, 197, 201, 0.639);
+  height: 350px;
+  width: 30%; }
+
 @media screen and (max-width: 480px) {
   .place-nav-menu {
     display: none; }
