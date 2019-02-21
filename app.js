@@ -67,7 +67,6 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 // default value for title local
 app.locals.title = 'Descubre los mejores restaurantes veganos';
 app.locals.logged = false
-app.locals.showMaterialize = true
 
 // Nav bar dynamic content based on session
 function isLogged(req, res, next) {
@@ -79,6 +78,11 @@ function isLogged(req, res, next) {
     next()
   }
 }
+
+//HBS helper
+hbs.registerHelper('get_length', function (obj) {
+  return obj.length;
+ });    
 
 const index = require('./routes/index');
 const auth = require('./routes/auth');

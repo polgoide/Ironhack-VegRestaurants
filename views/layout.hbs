@@ -21,7 +21,7 @@
   <div class="navbar-fixed">
     <nav>
       <div class="nav-wrapper green lighten-1">
-        <a href="/" class="brand-logo" style="font-size:2em;">Comer vegano</a>
+        <a href="/" class="brand-logo">Comer vegano</a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
           <li>
@@ -29,9 +29,10 @@
               <div class="col s12">
                 <div class="row">
                   <div class="input-field col s6 s12">
-                    
+                    <form action="/search" method="POST">
                     <i class="material-icons prefix text-white">search</i>
-                    <input class="text-white" type="text" placeholder="Buscar">
+                    <input class="text-white" type="text" name="query" placeholder="Buscar">
+                    </form>
                   </div>
                 </div>
               </div>
@@ -86,13 +87,11 @@
       </div>
     </div>
     <div class="footer-copyright">
-      © 2019 Copyright Text
+    <i class="fa fa-heart" id="like"></i> CDMX
     </div>
   </footer>
-  {{!-- <footer>Esto es el footer</footer> --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="/javascripts/script.js"></script>
-  {{#if showMaterialize}}
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>{{/if}}
 </body>
 
 </html>

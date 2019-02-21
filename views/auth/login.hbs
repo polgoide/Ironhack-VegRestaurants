@@ -14,14 +14,14 @@
 <form action="/login" method="post">
 {{/if}}
   <p>
-    <button type="password" name="password" style="border:none; background: none"><i class="small material-icons">email</i></button>
+    <i class="small material-icons">email</i>
     Email
-    <input type="email" name="email">
+    <input type="email" name="email" required>
   </p>
   <p>
-    <button type="password" name="password" style="border:none; background: none"><i class="small material-icons">lock</i></button>
+    <i class="small material-icons">lock</i>
     Password
-    <input type="password">
+    <input name="password" type="password" required>
   </p>
   <button class="btn-input"style="btn-large waves-effect" type="submit">Submit</button>
 </form>

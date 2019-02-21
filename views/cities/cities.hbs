@@ -1,18 +1,18 @@
-<div>
-<img class="cover"
-    src="https://i2.cdn.turner.com/money/dam/assets/141001144835-innovative-cities-philly-1024x576.jpg" 
-    alt="{{cityname}}">
-</div>
-<h3>Pick one city</h3>
-<div class="cov-all">
+<header>
+  <h2>{{title}}</h2>
   <p>{{city.info}}</p>
+</header>
+<div class="container">
 
-{{#each cities as |city|}}
-  <a href="/cities/detail/{{city._id}}">
-    <div class="imgs-cities" style="background-image: url({{city.photoURL}})">
-      <button class="city-title">{{city.cityname}}</button>
-    </div>
+<h3>Top Ciudades</h3>
+<div class="list-container">
+{{#each cities}}
+<a href="/ciudad/{{this.id}}">
+<div class="card" style="background-image: url('{{this.photoURL}}')">
+  {{this.cityname}}
+</div>
 </a>
 {{/each}}
+</div>
 </div>
 

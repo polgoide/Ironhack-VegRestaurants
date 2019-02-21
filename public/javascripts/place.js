@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
   let addPicBtn = document.getElementById('addPicBtn')
 
   addPicBtn.addEventListener('click', () => {
-    console.log('miau')
     let newPic = document.createElement('input')
     newPic.setAttribute('name', 'pictures')
     newPic.setAttribute('size', '40')
