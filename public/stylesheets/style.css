@@ -61,7 +61,8 @@ nav input[type=text]:focus {
   text-transform: none;
   font-size: 1rem;
   padding: 10px;
-  line-height: 2rem; }
+  line-height: 2rem;
+  width: 250px; }
 
 .btn {
   font-size: 1rem; }
@@ -114,7 +115,7 @@ header > * {
   flex-direction: column;
   height: 60px;
   width: 100%;
-  background-color: #5dbb8f;
+  background-color: #66bb6a;
   padding: 10px 40px;
   margin: 0 auto;
   box-sizing: border-box;
@@ -124,7 +125,7 @@ header > * {
   flex: 1 0 auto; }
 
 .page-footer {
-  background-color: #4a9773; }
+  background-color: #66bb6a; }
 
 .city-title {
   background-color: #9ab1c0a9;
@@ -395,7 +396,6 @@ a {
   opacity: .8; }
 
 #cover-detail {
-  background-image: src("{{city.photoURL}}");
   display: flex;
   align-items: center;
   justify-content: center; }
@@ -424,7 +424,8 @@ a {
 
 .list-container {
   display: flex;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  justify-content: center; }
 
 .list-container div {
   height: 200px;
@@ -475,6 +476,75 @@ a {
   height: 150px;
   width: 450px; }
 
+.profile-cont {
+  height: 90vh; }
+
+.profile-cov {
+  display: flex;
+  align-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-image: url("https://www.soscuisine.com/media/images/recettes/very_large/860.jpg");
+  background-size: cover;
+  height: 300px; }
+
+.btn-ProfileEdit {
+  background-color: rgba(127, 153, 181, 0.434);
+  padding: 20px;
+  position: absolute;
+  top: 280px;
+  left: 220px;
+  color: white;
+  justify-content: center;
+  opacity: .2;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  font-family: Avenir;
+  font-size: 1 em;
+  transition: all .3s ease;
+  outline: none;
+  height: 20px; }
+
+.btn-ProfileEdit.hover {
+  opacity: .9; }
+
+.info-profile {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: center;
+  position: absolute;
+  top: 500px;
+  left: 40px;
+  margin: 10px;
+  padding: 20px;
+  width: 30%;
+  height: 70px;
+  border-radius: 20px;
+  background-color: rgba(112, 153, 181, 0.2); }
+
+.pic {
+  display: flex;
+  align-content: center;
+  justify-content: flex-start;
+  position: absolute;
+  top: 250px;
+  left: 150px; }
+
+.con-comment {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: absolute;
+  top: 400px;
+  right: 180px;
+  background-color: rgba(160, 197, 201, 0.639);
+  height: 350px;
+  width: 30%; }
+
 @media screen and (max-width: 480px) {
   .place-nav-menu {
     display: none; }
@@ -492,12 +562,14 @@ a {
   #map {
     width: 100%; }
   nav .brand-logo {
-    font-size: 1.6rem; } }
+    font-size: 1.6rem; }
+  .btn-large {
+    width: 100%; }
+  .form-log {
+    padding: 30px; } }
 
 h5 {
   color: #221414;
-  background: none;
-  width: 20%;
-  height: 80px; }
+  background: none; }
 
 /*# sourceMappingURL=style.css.map */

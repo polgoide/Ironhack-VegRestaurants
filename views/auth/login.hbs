@@ -1,14 +1,11 @@
 <section class="log-sign">
-  {{!-- c="../images/receta-de-ensalada-de-lentejas-vegetariana.jpg --}}
 
 <div class="form-log">
   <p style="color:red">{{error}}</p>
   <div>
-  <h6 style="text-align: center">Log in</h6>
-  <button style="border:none; background:rgba(60, 63, 63, 0.356); border-radius: 50%;"><i class="large material-icons">person</i></button>
+  <h6 style="text-align: center">Entrar</h6>
   </div>
 {{#if next}}
-
 <form action="/login?next={{next}}" method="post">
 {{else}}
 <form action="/login" method="post">
@@ -23,12 +20,11 @@
     Password
     <input name="password" type="password" required>
   </p>
-  <button class="btn-input"style="btn-large waves-effect" type="submit">Submit</button>
+  <button class="waves-effect waves-light btn" type="submit">Entrar</button>
 </form>
 
 <p>
-<a href="/facebook/login" class="waves-effect waves-light btn-large indigo darken-2">
-    <i class="fa fa-facebook"></i> Entra con Facebook</a>
+<a href="/facebook/login" class="waves-effect waves-light btn-large indigo darken-2"><i class="fa fa-facebook"></i> Entra con Facebook</a>
 </p>
 
 <p style="text-align: center; color:rgb(0, 0, 0)"><a href="/signup">Crear cuenta</p></a>

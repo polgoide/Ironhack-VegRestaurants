@@ -1,17 +1,19 @@
-<div class="container">
-<button id="coverEdit" >EDITAR</button>
-  
+<div class="profile-cont">
+
+
+  <div class="profile-cov">
   {{#if photoURL}}
-  <img src="{{photoURL}}" alt="{{username}}">
+  <img class="pic" src="{{photoURL}}" alt="{{username}}">
   {{else}}
-  <img 
+  <img class="pic"
     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQopX4_8IGscQTYwpSREOzeW8NHwcArkMkOl3Y1q_EBSiVNCftbvw" 
     alt="{{username}}"
   >
   {{/if}}
+  </div>
+<button class="btn-ProfileEdit">EDITAR</button>
 
-</div>
-<section class="info">
+<section class="info-profile">
   <form action="/profile" method="post" enctype="multipart/form-data" >
     <input value="{{username}}" name="username" type="text">
     <br>
@@ -20,6 +22,11 @@
     <input type="submit">
   </form>
 </section>
+
+<div class="con-comment">
+<p>Comentarios:</p>
+</div>
+</div>
 
 <script>
   //  Click listener
