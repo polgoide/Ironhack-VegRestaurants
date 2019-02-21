@@ -53,11 +53,11 @@
        {{#if this.authorId.photoURL}}
        <img src="{{this.authorId.photoURL}}" alt="{{this.authorId.name}}">
        {{else}}
-       <img src="https://secure.gravatar.com/avatar/af866a9b55ceb905c6de928aeebfc1f6?s=96&d=https%3A%2F%2Fstatic.teamtreehouse.com%2Fassets%2Fcontent%2Fdefault_avatar-ea7cf6abde4eec089a4e03cc925d0e893e428b2b6971b12405a9b118c837eaa2.png&r=pg" alt="{{this.authorId.name}}">
+       <img src="https://secure.gravatar.com/avatar/af866a9b55ceb905c6de928aeebfc1f6?s=96&d=https%3A%2F%2Fstatic.teamtreehouse.com%2Fassets%2Fcontent%2Fdefault_avatar-ea7cf6abde4eec089a4e03cc925d0e893e428b2b6971b12405a9b118c837eaa2.png&r=pg" alt="{{this.authorId.name}}" width="50px">
        {{/if}}
      </div>
      <div class="place-comment-content">
-     <p><b>{{this.authorId.name}}</b></p>
+     <p><b>{{#if this.authorId.photoURL}}{{this.authorId.name}}{{else}}Usuario anonimo{{/if}}</b></p>
      <p>{{this.body}}</p>
      {{#each this.pictures}}
      <img src="{{this}}" alt="{{@index}}" class="materialboxed">

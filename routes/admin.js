@@ -80,7 +80,8 @@ router.get('/cities', (req, res, next) => {
 // COMMENTS
 
 router.post('/comments/:id', (req, res, next) => {
-  Comment.findByIdAndUpdate(req.params.id, {active: req.body.active})
+  console.log(req.params.id)
+  Comment.findByIdAndUpdate(req.params.id, {active: req.body.active}, {new: true}).populate('place').populate('authorId')
     .then(comment => {
       res.render('admin/comments/view', comment)
   })

@@ -24,7 +24,7 @@ router.post('/search', (req, res, next) => {
 // Cities
 
 router.get('/ciudades', (req,res,next)=> {
-  City.find()
+  City.find({active:true})
     .then(cities => {
     req.app.locals.title = "Ciudades con restaurantes veganos"
     res.render('cities/cities', {cities})
