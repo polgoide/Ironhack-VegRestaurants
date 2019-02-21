@@ -134,7 +134,7 @@ line-height: 1;
   flex-direction: column;
   height: 60px;
   width: 100%;
-  background-color: #5dbb8f;
+  background-color: rgb(102,187,106);
   padding: 10px 40px;
   margin: 0 auto;
   box-sizing: border-box;
@@ -145,7 +145,7 @@ line-height: 1;
   flex: 1 0 auto;
 }
 .page-footer{
-  background-color: #4a9773;
+  background-color: rgb(102,187,106);
 }
 
 
@@ -456,7 +456,7 @@ a {
 
 //DETAIL
 #cover-detail{
-  background-image: src("{{city.photoURL}}");
+  // background-image: src("{{city.photoURL}}");
   display: flex;
   align-items: center;
   justify-content: center;
