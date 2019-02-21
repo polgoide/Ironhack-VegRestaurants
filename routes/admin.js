@@ -146,8 +146,8 @@ router.post('/places/edit/:id', (req, res, next) => {
   if (req.body.pictures.length > 1) req.body.pictures = newArray 
   Place.findByIdAndUpdate(req.params.id, req.body, {new: true})
     .then(place => {
-      console.log(place.pictures)
-    res.render('admin/places/edit', {place})
+      res.send(place)
+    // res.render('admin/places/edit', {place})
   })
   .catch(e=> next(e))
 })
@@ -166,7 +166,8 @@ router.get('/places/edit/:id', (req, res, next) => {
 // New place
 router.post('/places/new', isAdmin, (req, res, next) => {
   Place.create({...req.body, authorId: req.user._id })
-  .then(()=>{
+    .then(r => {
+    console.log(r)
     res.redirect('/admin/places/')
   })
   .catch(e=> next(e))
