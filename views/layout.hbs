@@ -40,12 +40,12 @@
           </li>
           {{#if logged}}
           <li><a href="/">Home</a></li>
-          <li><a href="/profile">Profile</a></li>
-          <li><a href="/logout">Logout</a></li>
+          <li><a href="/profile">Mi Perfil</a></li>
+          <li><a href="/logout">Desconectar</a></li>
           {{else}}
           <li><a href="/">Home</a></li>
-          <li><a href="/signup">Signup</a></li>
-          <li><a href="/login">Login</a></li>
+          <li><a href="/signup">Crear cuenta</a></li>
+          <li><a href="/login">Entrar</a></li>
           {{/if}}
         </ul>
       </div>
@@ -53,17 +53,20 @@
   </div>
   <ul class="sidenav" id="mobile-demo">
     <li>
-      <i class="material-icons prefix text-white">search</i>
+      <form action="/search" method="POST">
       <input class="text-white" type="text" placeholder="Buscar">
+      </form>
     </li>
     {{#if logged}}
     <li><a href="/">Home</a></li>
-    <li><a href="/profile">Profile</a></li>
-    <li><a href="/logout">Logout</a></li>
+    <li><a href="/ciudades">Ciudades</a></li>
+    <li><a href="/profile">Mi Perfil</a></li>
+    <li><a href="/logout">Desconectar</a></li>
     {{else}}
     <li><a href="/">Home</a></li>
-    <li><a href="/signup">Signup</a></li>
-    <li><a href="/login">Login</a></li>
+    <li><a href="/ciudades">Ciudades</a></li>
+    <li><a href="/signup">Crear cuenta</a></li>
+    <li><a href="/login">Entrar</a></li>
     {{/if}}
   </ul>
 
@@ -79,7 +82,7 @@
           <p class="grey-text text-lighten-4"><a href="/terminos">Terminos y condiciones</a></p>
         </div>
         <div class="col l4 offset-l2 s12">
-          <h5 class="white-text">Join us</h5>
+          <h5 class="white-text">Siguenos</h5>
           <ul>
             <li><a class="grey-text text-lighten-3" href="https://www.facebook.com/pg/Comer-vegano-2297617963819669/">Facebook</a></li>
           </ul>
@@ -87,7 +90,7 @@
       </div>
     </div>
     <div class="footer-copyright">
-    <i class="fa fa-heart" id="like"></i> CDMX
+    Hecho en CDMX
     </div>
   </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
