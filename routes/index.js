@@ -47,7 +47,7 @@ router.get('/ciudad/:id', (req, res, next) => {
 
 
 // Place: add comment
-router.post('/restaurante/:slug/:id', isAuth, uploadCloud.single('pictures'), (req, res, next) => {
+router.post('/:slug/:id', isAuth, uploadCloud.single('pictures'), (req, res, next) => {
     if (req.file) req.body.pictures = [req.file.url]
     req.body.authorId = req.user._id
     req.body.place = req.params.id
@@ -58,7 +58,7 @@ router.post('/restaurante/:slug/:id', isAuth, uploadCloud.single('pictures'), (r
 })
 
 // Place detail
-router.get('/restaurante/:slug/:id', (req, res, next) => {
+router.get('/:slug/:id', (req, res, next) => {
   const { id } = req.params
   Promise.all([
     Place.findById(id).populate('cityId'),
