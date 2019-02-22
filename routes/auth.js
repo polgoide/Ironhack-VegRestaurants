@@ -1,5 +1,6 @@
 let router = require('express').Router()
 let User = require('../models/User')
+let Comment = require('../models/Comment')
 let passport = require('passport')
 let { isRole, isAdmin, isLoggedIn, isAuth } = require('../helpers/middlewares')
 let { sendWelcomeMail, sendNewsletter } = require('../helpers/mailer')
@@ -12,16 +13,16 @@ let uploadCloud = require('../helpers/cloudinary')
 // })
 
 // Profile
-router.post('/profile', isLoggedIn, uploadCloud.single('photoURL'), (req, res) => {
-  req.body.photoURL = req.files.photoURL[0].url
-  User.findByIdAndUpdate(req.user._id, req.body)
-  .then(()=>{
-    res.redirect('/profile')
-  })
-})
 
-router.get('/profile', isLoggedIn, (req,res) => {
-  res.render('auth/profile', req.user)
+router.get('/profile', isLoggedIn, (req, res) => {
+  Promise.all([
+    User.findById(req.user._id),
+    Comment.find({authorId: req.user._id}).populate('place')
+  ])
+    .then(r => {
+      console.log(r[1])
+      res.render('auth/profile', {user: r[0], comments: r[1]})
+  })
 })
 
 // Logout
@@ -31,17 +32,27 @@ router.get('/logout', (req, res) => {
 })
 
 // FB login
-router.get('/auth/callback/facebook', passport.authenticate('facebook'),
-  (req, res) => {
-    if (req.query.next) res.redirect(req.query.next)
-    else res.redirect('/')
-})
-router.get('/facebook/login',  passport.authenticate('facebook', {scope: ['email']})) // Scope to get additional fields
+router.get('/auth/callback/facebook', passport.authenticate('facebook', { failureRedirect: '/login' }),
+  (req, res, next) => {
+    res.redirect('/')
+  })
+router.get('/facebook/login', passport.authenticate('facebook', { scope: ['email'] }), (req, res, next) => {
+  req.app.locals.fbLogin  = req.query.next
+}) // Scope to get additional fields
 
 // Local login
-router.post('/login', passport.authenticate('local'), (req, res, next) => {
-  if (req.query.next) return res.redirect(req.query.next) // If there was a next, redirect the user there.
-  else res.redirect('/')  // Otherwise, redirect him to home page
+router.post('/login', (req, res, next) => {
+  passport.authenticate('local', (err, user, info) => {
+    console.log('error  1', err)
+    if (err) return next(err)
+    if (!user) return res.render('auth/login', { ...req.body, error: "Email o contrasena incorrecta" })
+    req.logIn(user, err => {
+      console.log('error 2', err)
+      if (err) return res.render('auth/login', { ...req.body, error: "Contrasena incorrecta" })
+      if (req.query.next) return res.redirect(req.query.next)
+      else return res.redirect('/')
+    })
+  })(req, res, next)  
 })
 
 router.get('/login', isAuth, (req, res, next) => {

@@ -16,20 +16,19 @@ router.post('/search', (req, res, next) => {
     Place.find({$or:[ {name: {$regex: query, $options: 'i'}}, {type: {$regex: query, $options: 'i'}}, {description: {$regex: query, $options: 'i'}}, {foodType: {$regex: query, $options: 'i'}}]})
   ])
     .then(result => {
-      console.log(result)
       res.render('search', {cities: result[0], places: result[1] })
     })
-  .catch(err=> next (e))
+  .catch(e=> next (e))
 })
 
 // Cities
 
 router.get('/ciudades', (req,res,next)=> {
-  City.find()
+  City.find({active:true})
     .then(cities => {
     req.app.locals.title = "Ciudades con restaurantes veganos"
     res.render('cities/cities', {cities})
-  }).catch(err=> next (e))
+  }).catch(e=> next (e))
 })
 
 
@@ -42,17 +41,17 @@ router.get('/ciudad/:id', (req, res, next) => {
     .then(response => {
     req.app.locals.title = `Comida vegana en ${response[0].cityname}`
     res.render('cities/detail', {city: response[0], places: response[1]})
-  }).catch(e=> console.log(e))
+  }).catch(e=> next(e))
 })
 
 
 // Place: add comment
-router.post('/:slug/:id', isAuth, uploadCloud.single('pictures'), (req, res, next) => {
+router.post('/:slug/:id', uploadCloud.single('pictures'), (req, res, next) => {
+    console.log('q', req.body)
     if (req.file) req.body.pictures = [req.file.url]
     req.body.authorId = req.user._id
     req.body.place = req.params.id
-    console.log('q', req.body)
-  Comment.create(req.body)
+    Comment.create(req.body)
     .then(comment => res.redirect(`/${req.params.slug}/${req.params.id}/#opiniones`))
     .catch(e=> next(e))
 })
@@ -92,7 +91,7 @@ router.get('/', (req, res, next) => {
       req.app.locals.title = `Comer vegano: los mejores restaurantes`
       res.render('index', { places: results[0], cities: results[1] });
     })
-    .catch(e => console.log(e))
+    .catch(e => next(e))
   
 })
 

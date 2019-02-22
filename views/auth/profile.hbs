@@ -1,40 +1,20 @@
-<div class="profile-cont">
+<section class="log-sign">
 
+<div class="form-log">
 
-  <div class="profile-cov">
-  {{#if photoURL}}
-  <img class="pic" src="{{photoURL}}" alt="{{username}}">
+  {{#if user.photoURL}}
+  <img class="pic" src="{{user.photoURL}}" alt="{{user.name}}">
   {{else}}
-  <img class="pic"
-    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQopX4_8IGscQTYwpSREOzeW8NHwcArkMkOl3Y1q_EBSiVNCftbvw" 
-    alt="{{username}}"
-  >
+  <img class="pic" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQopX4_8IGscQTYwpSREOzeW8NHwcArkMkOl3Y1q_EBSiVNCftbvw" >
   {{/if}}
-  </div>
-<button class="btn-ProfileEdit"><a href="/">EDITAR</a></button>
+  <ul>
+    <li>Nombre: {{#if user.email}}{{user.name}}{{else}}NA{{/if}}</li>
+    <li>Email: {{user.email}}</li>
+    <li>Comentarios: {{get_length comments}} </li>
+  </ul>
+  <h6>Comentarios:</h6>
+{{#each comments}}
+<blockquote>{{this.body}}</blockquote> publicado en <a href="/{{this.place.slug}}/{{this.place.id}}">{{this.place.name}}</a>
+{{/each}}
 
-<section class="info-profile">
-  <form action="/profile" method="post" enctype="multipart/form-data" >
-    <input value="{{username}}" name="username" type="text">
-    <br>
-    <input value="{{email}}" name="email" type="text">
-    <input name="photoURL" id="fileInput" hidden type="file" accept="image/*">
-    <input type="submit">
-  </form>
-</section>
-
-<div class="con-comment">
-<p>Comentarios:</p>
-</div>
-</div>
-
-<script>
-  //  Click listener
-  document.getElementById('coverEdit').addEventListener('click', function() {
-    document.getElementById('fileInput').click()
-  })
-  // After pic selection
-    document.getElementById('fileInput').addEventListener('change', function() {
-    document.querySelector('form').submit()
-  })
-</script>
+ </section>

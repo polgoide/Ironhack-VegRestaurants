@@ -1,7 +1,8 @@
-let mongoose = require('mongoose')
-let Schema = mongoose.Schema
+let mongoose = require("mongoose");
+let Schema = mongoose.Schema;
 
-let commentSchema = new Schema({
+let commentSchema = new Schema(
+  {
     place: {
       type: Schema.Types.ObjectId,
       ref: "Place"
@@ -12,6 +13,12 @@ let commentSchema = new Schema({
       type: Schema.Types.ObjectId,
       ref: "User"
     },
-},{timestamps:true})
+    active: {
+      type: String,
+      default: true
+    }
+  },
+  { timestamps: true }
+);
 
-module.exports = mongoose.model('Comment',commentSchema)
+module.exports = mongoose.model("Comment", commentSchema);

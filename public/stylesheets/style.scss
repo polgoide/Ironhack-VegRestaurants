@@ -1,4 +1,3 @@
-
 body {
   margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -118,10 +117,6 @@ line-height: 1;
   padding: 0px;
   border: none;
 }
-
-// BODY CONTAINER
-
-
 
 
 // FOOTER
@@ -302,7 +297,7 @@ margin: 20px;
   padding: 20px;
 }
 .place-comment-content img{
-  width: 50%;
+  width: 50px;
 }
 #social > ul{
   display: flex;
@@ -599,18 +594,10 @@ height: 90vh;
     border-radius: 20px;
     background-color: rgba(112, 153, 181, 0.2);
   }
-  .pic{
-   display:flex;
-   align-content:center;
-   justify-content: flex-start;
-   position: absolute;
-   top:250px;
-   left:150px;
-  }
+
 .con-comment{
   display:flex;
   flex-direction: column;
-  // flex-wrap:wrap;
   justify-content: space-around;
   position: absolute;
   top:400px;

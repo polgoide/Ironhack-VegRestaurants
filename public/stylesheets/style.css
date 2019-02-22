@@ -266,7 +266,7 @@ h3 {
   padding: 20px; }
 
 .place-comment-content img {
-  width: 50%; }
+  width: 50px; }
 
 #social > ul {
   display: flex;
@@ -525,14 +525,6 @@ a {
   height: 70px;
   border-radius: 20px;
   background-color: rgba(112, 153, 181, 0.2); }
-
-.pic {
-  display: flex;
-  align-content: center;
-  justify-content: flex-start;
-  position: absolute;
-  top: 250px;
-  left: 150px; }
 
 .con-comment {
   display: flex;

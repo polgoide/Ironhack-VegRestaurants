@@ -9,10 +9,6 @@ let { sendWelcomeMail, sendNewsletter } = require('../helpers/mailer')
 let multer = require('multer')
 let upload = multer({ dest: './public/uploads' })
 let uploadCloud = require('../helpers/cloudinary')
-let moment = require('moment');
-moment().format('L');
-// Profile
-
 
 // Send newsletters
 // router.get('/newsletter', (req, res, next) => {
@@ -55,7 +51,7 @@ router.get('/cities/edit/:id', (req, res, next) => {
   .catch(e=> next(e))
   })
 
-router.post('/cities/new', isAdmin, uploadCloud.single('photoURL'), (req, res, next) => {
+router.post('/cities/new', uploadCloud.single('photoURL'), (req, res, next) => {
   if(req.file) req.body.photoURL = req.file.url
   City.create({...req.body, authorId: req.user._id })
   .then(()=>{
@@ -84,7 +80,8 @@ router.get('/cities', (req, res, next) => {
 // COMMENTS
 
 router.post('/comments/:id', (req, res, next) => {
-  Comment.findByIdAndUpdate(req.params.id, {active: req.body.active})
+  console.log(req.params.id)
+  Comment.findByIdAndUpdate(req.params.id, {active: req.body.active}, {new: true}).populate('place').populate('authorId')
     .then(comment => {
       res.render('admin/comments/view', comment)
   })
@@ -146,8 +143,7 @@ router.post('/places/edit/:id', (req, res, next) => {
   if (req.body.pictures.length > 1) req.body.pictures = newArray 
   Place.findByIdAndUpdate(req.params.id, req.body, {new: true})
     .then(place => {
-      console.log(place.pictures)
-    res.render('admin/places/edit', {place})
+      res.render('admin/places/edit', {place})
   })
   .catch(e=> next(e))
 })
@@ -164,9 +160,9 @@ router.get('/places/edit/:id', (req, res, next) => {
 })
 
 // New place
-router.post('/places/new', isAdmin, (req, res, next) => {
+router.post('/places/new', (req, res, next) => {
   Place.create({...req.body, authorId: req.user._id })
-  .then(()=>{
+    .then(r => {
     res.redirect('/admin/places/')
   })
   .catch(e=> next(e))
