@@ -13,9 +13,9 @@
 <div><a href="#contacto"><i class="fa fa-map-marker"></i> <span class="place-nav-menu">Direccion</span></a></div>
 </div>
 <article class="place-container">
-<h3>Menu de {{place.name}}</h3>
+<h3>Menú de {{place.name}}</h3>
 <div class="card-panel orange lighten-4" id="menu">
-  {{place.name}} es un restaurante situado en {{place.address.location}}. Estan especializados en {{place.foodType}} y los {{place.social.likes}} veganos/vegetarianos que han ido, le han puesto una nota media de {{place.rating}}/10.
+  {{place.name}} es un restaurante ubicado en {{place.address.location}}. Están especializados en {{place.foodType}} y los {{place.social.likes}} veganos/vegetarianos que han ido, la han calificado con {{place.rating}}/10.
    <ul>
       <li>Especialidad: {{place.foodType}}</li>
       <li>Vegano o vegetariano? {{place.type}}</li>
@@ -39,7 +39,7 @@
   </div>
   {{else}}
   <div class="place-new-comment">
-    <p>Para dar tu opinion, crea tu cuenta usando Facebook. Son 2 clicks!</p>
+    <p>Para publicar tu opinión, crea tu cuenta usando Facebook. Son sólo 2 clicks!</p>
     <a href="/facebook/login?next=/{{place.slug}}/{{place.id}}" class="waves-effect waves-light btn-large indigo darken-2">
     <i class="fa fa-facebook"></i> Entra con Facebook</a>
   </div>
@@ -66,7 +66,7 @@
    </div>
    {{/each}}
    {{else}}
-   <p>Se el primero en dar tu opinion sobre {{place.name}}!</p>
+   <p>Sé el primero en dar tu opinión sobre {{place.name}}!</p>
    {{/if}}
 </div>
 <h3>Contactar con {{place.name}}</h3>
