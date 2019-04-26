@@ -11,4 +11,4 @@ Other features:
 - Foursquare API import on the admin
 - FB connect
 
-https://www.limotransferservice.com/
+Website using a similar template: [Limo Transfer Service](https://www.limotransferservice.com)
